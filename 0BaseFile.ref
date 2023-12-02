@@ -1,0 +1,104 @@
+%% OpTeX <1.05 Jan.2022> - REF file
+\Xrefversion{6}
+% \refdecl:
+\_def \_ctustyle_totlist {} \_def \_ctustyle_toflist {}
+ \_def \_ctustyle_Xtab #1#2#3{\_addto \_ctustyle_totlist {\_ctustyle_totline {#1}{#2}{#3}}}
+ \_def \_ctustyle_Xfig #1#2#3{\_addto \_ctustyle_toflist {\_ctustyle_tofline {#1}{#2}{#3}}} 
+\_Xpage{1}{i}
+\_Xpage{2}{ii}
+\_Xpage{3}{iii}
+\_Xpage{4}{iv}
+\_Xpage{5}{v}
+\_Xpage{6}{vi}
+\_Xpage{7}{1}
+\_Xtoc{1}{chap}{1}{}Úvod
+\_Xfnote
+\_Xfnote
+\_Xtoc{2}{sec}{1.1}{}Minimální dokument
+\_Xpage{8}{2}
+\_Xtoc{2}{sec}{1.2}{}Deklarační příkazy vymezující údaje o~dokumentu
+\_Xpage{9}{3}
+\_ctustyle_Xtab{deklarace}{1.1}{Seznam deklaračních příkazů}
+\_Xlabel{deklarace}{1.1}
+\_Xtoc{2}{sec}{1.3}{}Rozvržení zdrojového textu dokumentu
+\_Xpage{10}{4}
+\_Xtoc{2}{sec}{1.4}{}Pracovní prostředí
+\_Xtoc{2}{sec}{1.5}{}Potřebné soubory pro zpracování
+\_Xfnote
+\_Xpage{11}{5}
+\_Xtoc{2}{sec}{1.6}{}Řešení problémů
+\_Xfnote
+\_Xpage{12}{6}
+\_Xtoc{1}{chap}{2}{}Části dokumentu
+\_Xtoc{2}{sec}{2.1}{}Kapitoly, sekce, podsekce, přílohy
+\_Xtoc{2}{sec}{2.2}{}Povinné části závěrečné práce
+\_Xtoc{3}{secc}{2.2.1}{}Rozvržení dokumentu
+\_Xtoc{3}{secc}{2.2.2}{}Literatura
+\_Xpage{13}{7}
+\_Xtoc{2}{sec}{2.3}{}Obrázky, tabulky, listingy a další
+\_Xtoc{3}{secc}{2.3.1}{}Obrázky
+\_ctustyle_Xfig{logo}{2.1}{Ukázka vložení obrázku na střed}
+\_Xlabel{logo}{2.1}
+\_Xtoc{3}{secc}{2.3.2}{}Tabulky
+\_Xpage{14}{8}
+\_ctustyle_Xtab{absolventiFEL}{2.1}{Počet absolventů FEL}
+\_Xlabel{absolventiFEL}{2.1}
+\_Xlabel{aucislo}{2.3.3}
+\_Xtoc{3}{secc}{2.3.3}{}Automaticky číslované objekty
+\_Xpage{15}{9}
+\_Xtoc{3}{secc}{2.3.4}{}Listingy, výpisy kódů
+\_Xpage{16}{10}
+\_Xtoc{3}{secc}{2.3.5}{}Poznámky pod čarou
+\_Xfnote
+\_Xtoc{3}{secc}{2.3.6}{}Zvýrazňování textů
+\_Xlabel{uvozovky}{2.3.7}
+\_Xtoc{3}{secc}{2.3.7}{}Uvozovky, pomlčky, nezlomitelné mezery
+\_Xfnote
+\_Xtoc{3}{secc}{2.3.8}{}Odkazy do internetu.
+\_Xpage{17}{11}
+\_Xtoc{3}{secc}{2.3.9}{}Seznamy
+\_Xtoc{3}{secc}{2.3.10}{}Slovníček zkratek
+\_Xtoc{3}{secc}{2.3.11}{}Rejstřík
+\_Xpage{18}{12}
+\_Xlabel{citlit}{2.4}
+\_Xtoc{2}{sec}{2.4}{}Citace na literaturu
+\_Xfnote
+\_Xlabel{ozadani}{2.5}
+\_Xtoc{2}{sec}{2.5}{}Jak vložit zadání práce
+\_Xpage{19}{13}
+\_Xtoc{2}{sec}{2.6}{}Pracovní verze dokumentu
+\_Xpage{20}{14}
+\_Xtoc{2}{sec}{2.7}{}Finální verze dokumentu
+\_Xtoc{2}{sec}{2.8}{}Prezentace pro zpětný projektor
+\_Xpage{21}{15}
+\_Xlabel{typo}{3}
+\_Xtoc{1}{chap}{3}{}Poznámky k~typografii
+\_Xpage{22}{16}
+\_Xfnote
+\_Xbib{}{prvni}{1}{, }
+\_Xbib{}{tpp}{2}{, }
+\_Xbib{}{tbn}{3}{, }
+\_Xbib{}{tst}{4}{Olšák, 1998}
+\_Xbib{}{texbook}{5}{, }
+\_Xbib{}{optex}{6}{, }
+\_Xbib{}{zyka}{7}{, }
+\_Xbib{}{grafman}{8}{, }
+\_Xbib{}{grafman2}{9}{, }
+\_Xpage{23}{17}
+\_Xtoc{1}{chap}{ }{}\_mtext {bibliography}
+\_Xcite{/}{CVUT-FEL:zaverecne-prace}
+\_Xcite{/}{CVUT-FEL:smernice}
+\_Xcite{/}{CSN:016910}
+\_Xpage{24}{19}
+\_Xlabel{zadani}{A}
+\_Xtoc{1}{chap}{A}{}Zadání práce
+\_Xcite{/}{zyka}
+\_Xpage{25}{20}
+\_Xlabel{zkratky}{B}
+\_Xtoc{1}{chap}{B}{}Zkratky a symboly
+\_Xtoc{2}{sec}{B.1}{}Zkratky
+\_Xtoc{2}{sec}{B.2}{}Symboly
+\_Xcite{/}{grafman2}
+\_Xpage{26}{21}
+\_Xlabel{seznamfilu}{B.3}
+\_Xtoc{2}{sec}{B.3}{}Soubory, které jsou součástí {\ssr CTUstyle3}
