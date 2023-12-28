@@ -13,7 +13,8 @@
 \_Xpage{7}{1}
 \_Xtoc{1}{chap}{1}{}Úvod
 \_Xpage{8}{2}
-\_Xtoc{1}{chap}{2}{}Části dokumentu
+\_Xtoc{1}{chap}{2}{}Konstrukce BLDC motoru
+\_Xtoc{2}{sec}{2.1}{}Stator
 \_Xbib{}{CVUT-FEL:zaverecne-prace}{1}{, }
 \_Xbib{}{CVUT-FEL:smernice}{2}{, }
 \_Xbib{}{CSN:016910}{3}{, }
