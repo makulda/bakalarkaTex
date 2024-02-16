@@ -13,28 +13,48 @@
 \_Xpage{7}{1}
 \_Xtoc{1}{chap}{1}{}Úvod
 \_Xpage{8}{2}
-\_Xtoc{1}{chap}{2}{}Konstrukce BLDC motoru
-\_Xtoc{2}{sec}{2.1}{}Stator
-\_Xbib{}{CVUT-FEL:zaverecne-prace}{1}{, }
-\_Xbib{}{CVUT-FEL:smernice}{2}{, }
-\_Xbib{}{CSN:016910}{3}{, }
-\_Xbib{}{zyka}{4}{, }
-\_Xbib{}{grafman2}{5}{, }
+\_Xtoc{1}{chap}{2}{}Teoretický přehled o BLDC Motorech
+\_Xtoc{2}{sec}{2.1}{}Vznik BLDC motorů
+\_Xtoc{2}{sec}{2.2}{}charakteristika BLDC motorů
 \_Xpage{9}{3}
+\_Xtoc{1}{chap}{3}{}Konstrukce BLDC motoru
+\_Xtoc{2}{sec}{3.1}{}Stator a rotor
+\_ctustyle_Xfig{obr.a+obr.b}{3.1}{Popisek k obrázkům}
+\_Xlabel{obr.a+obr.b}{3.1}
+\_Xpage{10}{4}
+\_Xtoc{2}{sec}{3.2}{}Vinutí fází
+\_ctustyle_Xfig{obr.1+obr.2}{3.3}{Popisek}
+\_Xlabel{obr.1+obr.2}{3.3}
+\_Xpage{11}{5}
+\_Xtoc{2}{sec}{3.3}{}Permanentní magnety
+\_ctustyle_Xfig{obr.3+obr.4}{3.5}{Popisek}
+\_Xlabel{obr.3+obr.4}{3.5}
+\_Xpage{12}{6}
+\_Xtoc{2}{sec}{3.4}{}Komutátor
+\_Xtoc{2}{sec}{3.5}{}Řídící elektronika
+\_Xtoc{2}{sec}{3.6}{}Chlazení
+\_Xbib{}{prvni}{1}{, }
+\_Xbib{}{druha}{2}{Sang-Hong, 2017}
+\_Xbib{}{CVUT-FEL:zaverecne-prace}{3}{, }
+\_Xbib{}{CVUT-FEL:smernice}{4}{, }
+\_Xbib{}{CSN:016910}{5}{, }
+\_Xbib{}{zyka}{6}{, }
+\_Xbib{}{grafman2}{7}{, }
+\_Xpage{13}{7}
 \_Xtoc{1}{chap}{ }{}\_mtext {bibliography}
 \_Xcite{/}{CVUT-FEL:zaverecne-prace}
 \_Xcite{/}{CVUT-FEL:smernice}
 \_Xcite{/}{CSN:016910}
-\_Xpage{10}{5}
+\_Xpage{14}{9}
 \_Xlabel{zadani}{A}
 \_Xtoc{1}{chap}{A}{}Zadání práce
 \_Xcite{/}{zyka}
-\_Xpage{11}{6}
+\_Xpage{15}{10}
 \_Xlabel{zkratky}{B}
 \_Xtoc{1}{chap}{B}{}Zkratky a symboly
 \_Xtoc{2}{sec}{B.1}{}Zkratky
 \_Xtoc{2}{sec}{B.2}{}Symboly
 \_Xcite{/}{grafman2}
-\_Xpage{12}{7}
+\_Xpage{16}{11}
 \_Xlabel{seznamfilu}{B.3}
 \_Xtoc{2}{sec}{B.3}{}Soubory, které jsou součástí {\ssr CTUstyle3}

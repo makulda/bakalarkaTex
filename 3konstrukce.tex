@@ -1,0 +1,136 @@
+
+\catcode`<=13
+\def<#1>{\hbox{$\langle$\it#1\/$\rangle$}}
+\toksapp\everytt{\catcode`<=13} \toksapp\everyintt{\catcode`<=13}
+
+\iffalse
+Zajímavé fakta a tipy na obsah
+Book: Electric Motor Control: CD AC and BLDC
+	- DC motor handles about 2000 - 3000 hours (389)
+	- BLCD was developed in 1962 (389)
+	- BLDC has winding on STATOR and magnets on ROTOR
+	- advantages low-cost, high-speed, simple drive method (389)
+	- windings -> 1-phase (rotates only in one direction, no self startup), 2-phase, 3-phase and multi-phase (393)
+	- 2 type of design -> radial-flux / axial-flux type (393)
+		- radial-flux
+			- advantages of inner rotor: higher heat dissipating capacity, high torque-to-inertia ration, lower rotor inertia, lower vibration and noise
+				- common application is servo
+			- advantages of outer rotor: more magnets -> more flux 
+				- common application: app with const speed, computer disk drives, cooling fans
+		- axial-flux
+			- advantages of axial type: slim structure, shorter axial length
+				- common application: electical vehicles in-wheel motors, elevator motors
+
+	- Stator a rotor
+	- Vinutí
+	- Permanentní magnety
+	- Komutátor
+	- řídící elektronika
+	- chlazení
+	- konstrukční materiály?
+
+\fi
+\chap Konstrukce BLDC motoru
+% uvodní slovo do kapitoly
+BLDC motory nabízí širokou škálu konstrukčních variant a právě proto jsou populární volbou v mnoha aplikacích. 
+V této kapitole se budeme věnovat detailnímu popisu konstrukčních prvků BLDC motorů, jejich variantám a
+ elektronickým komponentám pro správný chod motoru. Začneme popisem statoru a rotoru, které jsou základními 
+ konstrukčními prvky motoru. Dále se zaměříme na vinutí fází a využití permanentních magnetů. 
+ Následně se seznámíme s technikami chlazení a nakonec se zaměříme na řídící elektroniku, která umožňuje efektivní řízení otáček a momentu motoru. 
+
+%BLDC motory představují moderní kategorii elektromotorů, které nabízí širokou škálu konstrukčních variant.
+%Konstrukční variabilita BLDC motorů je závislá na požadavcích konkrétní aplikace, ve které bude motor využit.
+%Nejbějží konstrukce jsou s radiálním a axiálním uspořádáním. Tyto konstrukce se liší umístěním rotoru vůči statoru a 
+%mají tak různé vlastnosti. Pojdmě si nyní vysvětlit, co je to stator a rotor.
+
+\sec Stator a rotor
+radial-flux / axial-flux
+Stator, často označovaný jako neměnná nebo nepohyblivá část. Obsahuje vinuté cívky, kterými prochází elektrický
+ proud generující magnetické pole. Naopak rotor představuje pohyblivou část motoru, která koná rotační pohyb kolem statoru.
+
+Vnitřní rotor je vhodný pro aplikace, kde je vyžadována vysoká tepelná odolnost, vysoký poměr točivého momentu k setrvačnosti, 
+nízká setrvačnost rotoru a nízká hlučnost. 
+
+Naopak vnější rotor je vhodný pro aplikace, kde je vyžadován vysoký točivý moment,  
+Další výhodou vnějšího rotoru je možnost umístit více magnetů, což zvyšuje magnetický tok a tím i výkon motoru.
+V některých aplikacích je takové řešení 
+
+Axiální uspořádání je vhodné pro aplikace, kde je vyžadována kompaktní konstrukce a krátká délka motoru.
+Tento typ konstrukce je vhodný pro aplikace, kde je omezený prostor, jako například elektromobily, výtahy nebo chlazení.
+
+
+ V rámci této kapitoly se detailněji zaměříme na konstrukční řešení a nezbytné komponenty pro chod motoru.
+ 
+ \medskip
+\picw=.6\hsize
+\clabel[obr.a+obr.b]{Popisek k obrázkům} % to dá popisek do seznamu obrázků
+\centerline {\inspic Pictures/3konstrukce/in-rotor-stator.png \hfil\hfil \inspic Pictures/3konstrukce/out-rotor-stator.png }\nobreak
+\centerline {a)\hfil\hfil b)}\nobreak\medskip
+\caption/f Radiální BLDC motor a) se statorem uvnitř rotoru b) s rotorem uvnitř statoru.
+ \medskip
+
+ \medskip
+ \picw=9 cm \cinspic Pictures/3konstrukce/axial-rotor-stator.png 
+ \caption/f Ukázka vložení obrázku na střed, což je asi nejobvyklejší.
+ \medskip
+ 
+ - axialní
+ - radiální
+    - rotor in / out
+
+ - coreless (slotless) motor
+	- výhody
+	- nevýhody
+	- aplikace	
+
+
+	- motory s rotorem uvnitř statoru mají menší torque -> jsou delší než s rotorem out
+ \cite[druha]
+ % společný prvek
+
+ \sec Vinutí fází
+- materiál (izolace)
+- zapojení (trojúhelníkové, hvězdicové)
+- počet cívek
+- cogling torque 
+
+\medskip
+\picw=.6\hsize
+\clabel[obr.1+obr.2]{Popisek} % to dá popisek do seznamu obrázků
+\centerline {\inspic Pictures/3konstrukce/in-coil.png \hfil\hfil \inspic Pictures/3konstrukce/out-coil.png }\nobreak
+\centerline {a)\hfil\hfil b)}\nobreak\medskip
+\caption/f Radiální BLDC motor a) se statorem uvnitř rotoru b) s rotorem uvnitř statoru.
+ \medskip
+Mezera 
+ \medskip
+\picw=9 cm \cinspic Pictures/3konstrukce/axial-coil.png 
+\caption/f Ukázka vložení obrázku na střed, což je asi nejobvyklejší.
+\medskip
+
+
+ \sec Permanentní magnety
+
+ \medskip
+\picw=.6\hsize
+\clabel[obr.3+obr.4]{Popisek} % to dá popisek do seznamu obrázků
+\centerline {\inspic Pictures/3konstrukce/in-complet.png \hfil\hfil \inspic Pictures/3konstrukce/out-complet.png }\nobreak
+\centerline {a)\hfil\hfil b)}\nobreak\medskip
+\caption/f Radiální BLDC motor a) se statorem uvnitř rotoru b) s rotorem uvnitř statoru.
+ \medskip
+Mezera 
+ \medskip
+\picw=9 cm \cinspic Pictures/3konstrukce/axial-complet.png 
+\caption/f Ukázka vložení obrázku na střed, což je asi nejobvyklejší.
+\medskip
+
+- materiál
+- tvar
+- umístění
+
+ \sec Komutátor
+
+ \sec Řídící elektronika
+ - ESC (Electronic Speed Control)
+ \sec Chlazení
+
+ 

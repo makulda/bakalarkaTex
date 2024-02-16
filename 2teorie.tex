@@ -1,0 +1,23 @@
+\catcode`<=13
+\def<#1>{\hbox{$\langle$\it#1\/$\rangle$}}
+\toksapp\everytt{\catcode`<=13} \toksapp\everyintt{\catcode`<=13}
+
+\chap Teoretický přehled o BLDC Motorech
+
+\sec Vznik BLDC motorů
+
+    Stejnosměrné motory s kartáči hrály klíčovou roli v elektrifikaci během druhé průmyslové revoluce v druhé polovině 19. století. 
+Díky jejich schopnosti snadné regulace otáček pomocí potenciometru se staly populární volbou pro různé průmyslové aplikace, kde byla
+ vyžadována variabilita a přesnost rychlosti.
+
+Nicméně, tato technologie má své nevýhody. Mechanická změna komutace prostřednictvím kartáčů snižuje účinnost a omezuje životnost
+ motoru na 2000-3000 hodin provozu. Odstraněním kartáčů by tak bylo možné vytvořit motor s výrazně delší životností a vyšší účinností. 
+ Avšak technologicky nebylo možné takový motor vytvořit. Významný zlom nastala až v 60. letech 20. století s objevem křemíkových polovodičových součástek.
+ Tyto součástky umožnily vývoj elektronických komutátorů, které představovaly klíčový krok směrem k nové éře.
+ 
+ V roce 1962 představili T.G. Wilson a P.H. Trickey v článku \textit{D-C machine with solid-state commutation} první funkční řešení bezkartáčového 
+ stejnosměrného motoru (BLDC) a otevřeli tak cestu pro vývoj moderních BLDC motorů. \cite[prvni].
+
+ \sec charakteristika BLDC motorů
+    BLDC motory se vyznačují několika klíčovými vlastnostmi, které je činí vhodnými pro širokou škálu aplikací. Mezi ty největší patří 
+    - zařazení do kategorie synchronních motorů (obrázek, kam se řadí, takový to schéma)
