@@ -36,7 +36,7 @@ BLDC motory nabízí širokou škálu konstrukčních variant a právě proto js
 V této kapitole se budeme věnovat detailnímu popisu konstrukčních prvků BLDC motorů, jejich variantám a
  elektronickým komponentám pro správný chod motoru. Začneme popisem statoru a rotoru, které jsou základními 
  konstrukčními prvky motoru. Dále se zaměříme na vinutí fází a využití permanentních magnetů. 
- Následně se seznámíme s technikami chlazení a nakonec se zaměříme na řídící elektroniku, která umožňuje efektivní řízení otáček a momentu motoru. 
+ Následně se seznámíme s technikami chlazení a nakonec se zaměříme na řídící elektroniku, která umožňuje efektivní řízení otáček a točivého momentu motoru. 
 
 %BLDC motory představují moderní kategorii elektromotorů, které nabízí širokou škálu konstrukčních variant.
 %Konstrukční variabilita BLDC motorů je závislá na požadavcích konkrétní aplikace, ve které bude motor využit.
@@ -44,30 +44,44 @@ V této kapitole se budeme věnovat detailnímu popisu konstrukčních prvků BL
 %mají tak různé vlastnosti. Pojdmě si nyní vysvětlit, co je to stator a rotor.
 
 \sec Stator a rotor
-radial-flux / axial-flux
-Stator, často označovaný jako neměnná nebo nepohyblivá část. Obsahuje vinuté cívky, kterými prochází elektrický
- proud generující magnetické pole. Naopak rotor představuje pohyblivou část motoru, která koná rotační pohyb kolem statoru.
 
-Vnitřní rotor je vhodný pro aplikace, kde je vyžadována vysoká tepelná odolnost, vysoký poměr točivého momentu k setrvačnosti, 
-nízká setrvačnost rotoru a nízká hlučnost. 
+Stator a rotor jsou základním konstrukční prvkem každého elektromotoru. Stator, často označovaný jako neměnná nebo nepohyblivá část, obsahuje vinuté cívky, kterými prochází elektrický
+ proud generující magnetické pole. Naopak rotor představuje pohyblivou část motoru, která koná rotační pohyb kolem statoru a přenáší tak točivý moment na hřídel či na objekt, s kterým chceme pohybovat. 
+ Rotor může být vybaven permanentními magnety nebo vinutými cívkami. V takovém případě hovoříme o cize buzeném motoru. V případě BLDC motorů je nejběžnější použití permanentních magnetů a proto se 
+ zaměříme právě na tyto konstrukční řešení.  
 
-Naopak vnější rotor je vhodný pro aplikace, kde je vyžadován vysoký točivý moment,  
-Další výhodou vnějšího rotoru je možnost umístit více magnetů, což zvyšuje magnetický tok a tím i výkon motoru.
-V některých aplikacích je takové řešení 
+Setkáváme se s několika konstrukčními variantami, které se liší umístěním rotoru vůči statoru. Mužeme je rozdělit na radiální a axiální uspořádání.
+Radiální uspořádání je nejběžnější. V tomto uspořádání je rotor umístěn uvnitř statoru, nebo naopak stator uvnitř rotoru. Takové řešení můžeme vidět na obrázku 3.1.
 
-Axiální uspořádání je vhodné pro aplikace, kde je vyžadována kompaktní konstrukce a krátká délka motoru.
-Tento typ konstrukce je vhodný pro aplikace, kde je omezený prostor, jako například elektromobily, výtahy nebo chlazení.
-
-
- V rámci této kapitoly se detailněji zaměříme na konstrukční řešení a nezbytné komponenty pro chod motoru.
- 
- \medskip
+\medskip
 \picw=.6\hsize
 \clabel[obr.a+obr.b]{Popisek k obrázkům} % to dá popisek do seznamu obrázků
 \centerline {\inspic Pictures/3konstrukce/in-rotor-stator.png \hfil\hfil \inspic Pictures/3konstrukce/out-rotor-stator.png }\nobreak
 \centerline {a)\hfil\hfil b)}\nobreak\medskip
 \caption/f Radiální BLDC motor a) se statorem uvnitř rotoru b) s rotorem uvnitř statoru.
  \medskip
+
+ Pojdmě nyní porotvnat oba typy z pohledu vlastností. Představme si tedy situaci, že chceme vytvořit motor s daným točivým momentem. 
+ V případě, že se rozhodneme pro uspořádání rotoru uvnitř statoru, musíme počítat s tím, že motor bude delší, než v případě, kdy je rotor umístěn vně statoru. 
+ A to z důvodu, že rotor uvnitř statoru můžeme osadit méně magnety a síla působící z interakce magnutů a generovaného magnetického pole působí blíže středu otáčaní rotoru. 
+ Proto pro stejné vlastnosti musí být rotor delší. Naopak rotor umístěný vně statoru můžeme osadit více magnety a síla z interakce bude působit dál od středu otáčení. Motor tak bude kratší. 
+
+ Nevýhodu druhého řešení můžeme vidět v tom, že motor není od vnějšího prostředí izolován a je tak náchylnější na vnější vlivy jako je prach, voda nebo mechanické poškození.
+ Případně může představovat bezpečnostní riziko pro osoby v blízkosti motoru. Pokud bychom chtěli motor izolovat, museli bychom použít nějaký druh krytu, který by jednak zvětšil rozměry motoru, 
+ tak by zhoršil ch lazení motoru. Nelze tak jednoznačně říci, které řešení je lepší. Záleží na konkrétní aplikaci a požadavcích aplikace.
+
+% Vnitřní rotor je vhodný pro aplikace, kde je vyžadována vysoká tepelná odolnost, vysoký poměr točivého momentu k setrvačnosti, 
+% nízká setrvačnost rotoru a nízká hlučnost. 
+
+%Naopak vnější rotor je vhodný pro aplikace, kde je vyžadován vysoký točivý moment,   
+%Další výhodou vnějšího rotoru je možnost umístit více magnetů, což zvyšuje magnetický tok a tím i výkon motoru.
+%V některých aplikacích je takové řešení 
+
+Axiální uspořádání je vhodné pro aplikace, kde je vyžadována kompaktní konstrukce a krátká délka motoru.
+Tento typ konstrukce je vhodný pro aplikace, kde je omezený prostor, jako například elektromobily, výtahy nebo chlazení.
+
+
+ V rámci této kapitoly se detailněji zaměříme na konstrukční řešení a nezbytné komponenty pro chod motoru.
 
  \medskip
  \picw=9 cm \cinspic Pictures/3konstrukce/axial-rotor-stator.png 
@@ -108,6 +122,11 @@ Mezera
 \medskip
 
 
+ \sec Slot vs Slotless konstrukce
+ - co to je
+- výhody
+- nevýhody
+- aplikace
  \sec Permanentní magnety
 
  \medskip
