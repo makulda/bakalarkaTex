@@ -19,20 +19,23 @@
 \_Xpage{9}{3}
 \_Xtoc{1}{chap}{3}{}Konstrukce BLDC motoru
 \_Xtoc{2}{sec}{3.1}{}Stator a rotor
+\_Xtoc{3}{secc}{3.1.1}{}Radiální uspořádání
 \_ctustyle_Xfig{obr.a+obr.b}{3.1}{Popisek k obrázkům}
-\_Xlabel{obr.a+obr.b}{3.1}
 \_Xpage{10}{4}
+\_Xlabel{obr.a+obr.b}{3.1}
+\_Xtoc{3}{secc}{3.1.2}{}Axiální uspořádání
+\_Xpage{11}{5}
 \_Xtoc{2}{sec}{3.2}{}Vinutí fází
 \_ctustyle_Xfig{obr.1+obr.2}{3.3}{Popisek}
 \_Xlabel{obr.1+obr.2}{3.3}
-\_Xpage{11}{5}
-\_Xtoc{2}{sec}{3.3}{}Permanentní magnety
+\_Xtoc{2}{sec}{3.3}{}Slot vs Slotless konstrukce
+\_Xpage{12}{6}
+\_Xtoc{2}{sec}{3.4}{}Permanentní magnety
 \_ctustyle_Xfig{obr.3+obr.4}{3.5}{Popisek}
 \_Xlabel{obr.3+obr.4}{3.5}
-\_Xpage{12}{6}
-\_Xtoc{2}{sec}{3.4}{}Komutátor
-\_Xtoc{2}{sec}{3.5}{}Řídící elektronika
-\_Xtoc{2}{sec}{3.6}{}Chlazení
+\_Xtoc{2}{sec}{3.5}{}Komutátor
+\_Xtoc{2}{sec}{3.6}{}Řídící elektronika
+\_Xtoc{2}{sec}{3.7}{}Chlazení
 \_Xbib{}{prvni}{1}{, }
 \_Xbib{}{druha}{2}{Sang-Hong, 2017}
 \_Xbib{}{CVUT-FEL:zaverecne-prace}{3}{, }

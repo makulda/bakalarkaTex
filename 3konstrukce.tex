@@ -47,11 +47,14 @@ V této kapitole se budeme věnovat detailnímu popisu konstrukčních prvků BL
 
 Stator a rotor jsou základním konstrukční prvkem každého elektromotoru. Stator, často označovaný jako neměnná nebo nepohyblivá část, obsahuje vinuté cívky, kterými prochází elektrický
  proud generující magnetické pole. Naopak rotor představuje pohyblivou část motoru, která koná rotační pohyb kolem statoru a přenáší tak točivý moment na hřídel či na objekt, s kterým chceme pohybovat. 
- Rotor může být vybaven permanentními magnety nebo vinutými cívkami. V takovém případě hovoříme o cize buzeném motoru. V případě BLDC motorů je nejběžnější použití permanentních magnetů a proto se 
- zaměříme právě na tyto konstrukční řešení.  
+ Rotor může být osazen permanentními magnety nebo vinutými cívkami. V takovém případě hovoříme o cize buzeném motoru. V případě BLDC motorů je nejběžnější použití permanentních magnetů a proto se 
+ zaměříme právě na tyto konstrukční řešení. 
 
 Setkáváme se s několika konstrukčními variantami, které se liší umístěním rotoru vůči statoru. Mužeme je rozdělit na radiální a axiální uspořádání.
-Radiální uspořádání je nejběžnější. V tomto uspořádání je rotor umístěn uvnitř statoru, nebo naopak stator uvnitř rotoru. Takové řešení můžeme vidět na obrázku 3.1.
+\secc Radiální uspořádání
+S radiálním uspořádáním se BLDC motorů setkáváme nejčastěji. V tomto uspořádání je rotor umístěn buď uvnitř, nebo vně statoru. 
+V obou případech je stator a rotor oddělen vzduchovou mezerou, která zajišťuje minimální mechanický kontakt mezi oběma částmi.
+Příklad BLDC motoru s radálním uspořádáním můžeme vidět na obrázku 3.1 níže.
 
 \medskip
 \picw=.6\hsize
@@ -60,23 +63,61 @@ Radiální uspořádání je nejběžnější. V tomto uspořádání je rotor u
 \centerline {a)\hfil\hfil b)}\nobreak\medskip
 \caption/f Radiální BLDC motor a) se statorem uvnitř rotoru b) s rotorem uvnitř statoru.
  \medskip
+% porovnat varianty na obrázku
+ Pojdmě nyní porotvnat oba typy z pohledu klíčových vlastností, výhod a nevýhod. 
+ Pro porovnání uvažujme motory a) a b) z obrázku~\ref[obr.a+obr.b], které jsou vyrobeny ze stejných materiálů a jejich vnější rozměry jsou identiké.
 
- Pojdmě nyní porotvnat oba typy z pohledu vlastností. Představme si tedy situaci, že chceme vytvořit motor s daným točivým momentem. 
- V případě, že se rozhodneme pro uspořádání rotoru uvnitř statoru, musíme počítat s tím, že motor bude delší, než v případě, kdy je rotor umístěn vně statoru. 
- A to z důvodu, že rotor uvnitř statoru můžeme osadit méně magnety a síla působící z interakce magnutů a generovaného magnetického pole působí blíže středu otáčaní rotoru. 
- Proto pro stejné vlastnosti musí být rotor delší. Naopak rotor umístěný vně statoru můžeme osadit více magnety a síla z interakce bude působit dál od středu otáčení. Motor tak bude kratší. 
+ Pokud jde o točivý moment, motor typu a) dosahuje výrazně vyššího točivého momentu než motor typu b). Tento rozdíl je dán větším poloměrem rotoru, který 
+ má přímý vliv na točivý moment, neboť síla působící z interakce magnetů a generovaného magnetického pole působí dále od středu otáčení rotoru.
 
- Nevýhodu druhého řešení můžeme vidět v tom, že motor není od vnějšího prostředí izolován a je tak náchylnější na vnější vlivy jako je prach, voda nebo mechanické poškození.
- Případně může představovat bezpečnostní riziko pro osoby v blízkosti motoru. Pokud bychom chtěli motor izolovat, museli bychom použít nějaký druh krytu, který by jednak zvětšil rozměry motoru, 
- tak by zhoršil ch lazení motoru. Nelze tak jednoznačně říci, které řešení je lepší. Záleží na konkrétní aplikaci a požadavcích aplikace.
+ Další výhodou motoru typu a) je možnost umístit více magnetů na povrch rotoru. To má za následek možnost přesnějšího řízení otáček a točivého momentu 
+ motoru i při nízkých otáčkách. 
 
+Z pohledu maximálních dosažených otáček je motor typu b) výhodnější. Díky menšímu 
+poloměru rotoru je vystaven jednak menšímu působení dostředivé resp. odstředivé síly, která může způsobit mechanické poškození rotoru při vysokých otáčkách, 
+tak i menším aerodynamickým silám způsobených pohybem rotoru v daném prostředí.
+Další výhodou motoru typu b) pro dosažení a udržení vysokých otáček je možnost lepšího chlazení. Stator je snadno dostupný a lze tak 
+snadněji zajistit jeho chlazení.
+
+Menší poloměr rotoru znamená nižší moment setrvačnosti. Tato vlastnost umožňuje motoru typu b) rychlejšímu zrychlení rotoru. Motoru typu 
+a) ale vyšší moment setrvačnosti umožňuje udržet lépe rotor na konstantních otáčkách.
+
+Pokud jde o ochranu proti vnějším vlivům, motor typu b) vyniká. Rotor je chráněn statorovým tělem, což znamená, že je méně náchylný na vnější vlivy 
+jako je prach, voda nebo mechanické poškození. Stejně tak představuje menší bezpečnostní riziko pro osoby v blízkosti motoru.
+
+Další výhodou motoru typu b) je nižší hlučnost. Rotor při stejných otáčkách dosahuje nižších rychlostí na obvodu rotoru,
+ což má za následek nižší hlučnost.
+ 
+%Z pohledu točivého momentu můžeme říci, že motor typu a) dosáhne vyššího točivého momentu než motor typu b). 
+% Důvodem je větší poloměr rotoru, který má přímý vliv na točivý moment (síla působící z interakce magnetů a generovaného magnetického pole působí dále 
+ %od středu otáčení rotoru). 
+
+ %Z pohledu maximalní dosažené rychlosti má motor typu b) výhodu. Díky menšímu poloměru rotoru je vystavem menšímu působení dostředivé resp. odstředivé síly, 
+ %která může způsobit mechanické poškození rotoru při vysokých otáčkách.
+
+ %Z pohledu ochrany proti vnějším vlivům má motor typu a) výhodu. Rotor je chráněn statorovým tělem, což znamená, že je méně náchylný na 
+ %vnější vlivy jako je prach, voda nebo mechanické poškození. Stejně tak představuje menší bezpečnostní riziko pro osoby v blízkosti motoru.
+ 
+ %Představme si tedy situaci, že chceme vytvořit motor dosahující daný točivý moment a vzhledem
+ %podobný motoru na obrázku~\ref[obr.a+obr.b]. 
+ %V případě, že se rozhodneme pro uspořádání rotoru uvnitř statoru, musíme počítat s tím, že motor bude delší, než v případě, kdychom rotor umístili vně statoru. 
+ %Důvodem prodloužení motoru je menší poloměr rotoru, který má přímý vliv na točivý moment. Síla působící z interakce magnutů a generovaného magnetického 
+ %pole působí blíže středu otáčaní rotoru. Proto pro stejné vlastnosti musí být rotor delší. Tím budeme moci menší poloměr rotoru kompenzovat generováním větší síly z interakce magnetů 
+ %a generovaného magetického pole.
+ % \label[torque]
+ % $$ a^2 + b^2 = c^2 \eqmark $$ % ~\ref[torque] - odkaz na rovnici
+
+ %Z pohledu točivého momentu je tedy výhodné uspořádání rotoru vně statoru. Nevýhodu druhého řešení můžeme vidět v tom, že motor není od vnějšího prostředí izolován a je tak náchylnější na vnější vlivy jako je prach, voda nebo mechanické poškození.
+ %Případně může představovat bezpečnostní riziko pro osoby v blízkosti motoru. Pokud bychom chtěli motor izolovat, museli bychom použít nějaký druh krytu, který by jednak zvětšil rozměry motoru, 
+ %tak by zhoršil ch lazení motoru. Nelze tak jednoznačně říci, které řešení je lepší. Záleží na konkrétní aplikaci a požadavcích aplikace.
+ 
 % Vnitřní rotor je vhodný pro aplikace, kde je vyžadována vysoká tepelná odolnost, vysoký poměr točivého momentu k setrvačnosti, 
 % nízká setrvačnost rotoru a nízká hlučnost. 
 
 %Naopak vnější rotor je vhodný pro aplikace, kde je vyžadován vysoký točivý moment,   
 %Další výhodou vnějšího rotoru je možnost umístit více magnetů, což zvyšuje magnetický tok a tím i výkon motoru.
 %V některých aplikacích je takové řešení 
-
+\secc Axiální uspořádání
 Axiální uspořádání je vhodné pro aplikace, kde je vyžadována kompaktní konstrukce a krátká délka motoru.
 Tento typ konstrukce je vhodný pro aplikace, kde je omezený prostor, jako například elektromobily, výtahy nebo chlazení.
 
