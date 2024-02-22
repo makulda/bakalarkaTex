@@ -36,7 +36,8 @@ BLDC motory nabízí širokou škálu konstrukčních variant a právě proto js
 V této kapitole se budeme věnovat detailnímu popisu konstrukčních prvků BLDC motorů, jejich variantám a
  elektronickým komponentám pro správný chod motoru. Začneme popisem statoru a rotoru, které jsou základními 
  konstrukčními prvky motoru. Dále se zaměříme na vinutí fází a využití permanentních magnetů. 
- Následně se seznámíme s technikami chlazení a nakonec se zaměříme na řídící elektroniku, která umožňuje efektivní řízení otáček a točivého momentu motoru. 
+ Následně se seznámíme s technikami chlazení a nakonec se zaměříme na řídící elektroniku, která 
+ umožňuje efektivní řízení otáček a točivého momentu motoru. 
 
 %BLDC motory představují moderní kategorii elektromotorů, které nabízí širokou škálu konstrukčních variant.
 %Konstrukční variabilita BLDC motorů je závislá na požadavcích konkrétní aplikace, ve které bude motor využit.
@@ -51,96 +52,60 @@ Stator a rotor jsou základním konstrukční prvkem každého elektromotoru. St
  zaměříme právě na tyto konstrukční řešení. 
 
 Setkáváme se s několika konstrukčními variantami, které se liší umístěním rotoru vůči statoru. Mužeme je rozdělit na radiální a axiální uspořádání.
+Dále dále můžeme stator rozdělit na tzv. slot a slotless variantu. Pojdmě si nyní tyto konstrukční varianty detailněji představit.   
 \secc Radiální uspořádání
 S radiálním uspořádáním se BLDC motorů setkáváme nejčastěji. V tomto uspořádání je rotor umístěn buď uvnitř, nebo vně statoru. 
-V obou případech je stator a rotor oddělen vzduchovou mezerou, která zajišťuje minimální mechanický kontakt mezi oběma částmi.
+V obou případech je stator a rotor oddělen vzduchovou mezerou, která zajišťuje minimální mechanický kontakt mezi oběma částmi. 
+Takové uspořádaní si můžeme představit jako dvě koncentrické trubice, kde jedna trubice představuje stator a druhá rotor.
 Příklad BLDC motoru s radálním uspořádáním můžeme vidět na obrázku 3.1 níže.
 
 \medskip
-\picw=.6\hsize
+\picw=.5\hsize
 \clabel[obr.a+obr.b]{Popisek k obrázkům} % to dá popisek do seznamu obrázků
-\centerline {\inspic Pictures/3konstrukce/in-rotor-stator.png \hfil\hfil \inspic Pictures/3konstrukce/out-rotor-stator.png }\nobreak
+\centerline {\inspic Pictures/3konstrukce/in-complet.png \hfil\hfil \inspic Pictures/3konstrukce/out-complet.png }\nobreak
 \centerline {a)\hfil\hfil b)}\nobreak\medskip
 \caption/f Radiální BLDC motor a) se statorem uvnitř rotoru b) s rotorem uvnitř statoru.
  \medskip
-% porovnat varianty na obrázku
- Pojdmě nyní porotvnat oba typy z pohledu klíčových vlastností, výhod a nevýhod. 
- Pro porovnání uvažujme motory a) a b) z obrázku~\ref[obr.a+obr.b], které jsou vyrobeny ze stejných materiálů a jejich vnější rozměry jsou identiké.
-
- Pokud jde o točivý moment, motor typu a) dosahuje výrazně vyššího točivého momentu než motor typu b). Tento rozdíl je dán větším poloměrem rotoru, který 
- má přímý vliv na točivý moment, neboť síla působící z interakce magnetů a generovaného magnetického pole působí dále od středu otáčení rotoru.
-
- Další výhodou motoru typu a) je možnost umístit více magnetů na povrch rotoru. To má za následek možnost přesnějšího řízení otáček a točivého momentu 
- motoru i při nízkých otáčkách. 
-
-Z pohledu maximálních dosažených otáček je motor typu b) výhodnější. Díky menšímu 
-poloměru rotoru je vystaven jednak menšímu působení dostředivé resp. odstředivé síly, která může způsobit mechanické poškození rotoru při vysokých otáčkách, 
-tak i menším aerodynamickým silám způsobených pohybem rotoru v daném prostředí.
-Další výhodou motoru typu b) pro dosažení a udržení vysokých otáček je možnost lepšího chlazení. Stator je snadno dostupný a lze tak 
-snadněji zajistit jeho chlazení.
-
-Menší poloměr rotoru znamená nižší moment setrvačnosti. Tato vlastnost umožňuje motoru typu b) rychlejšímu zrychlení rotoru. Motoru typu 
-a) ale vyšší moment setrvačnosti umožňuje udržet lépe rotor na konstantních otáčkách.
-
-Pokud jde o ochranu proti vnějším vlivům, motor typu b) vyniká. Rotor je chráněn statorovým tělem, což znamená, že je méně náchylný na vnější vlivy 
-jako je prach, voda nebo mechanické poškození. Stejně tak představuje menší bezpečnostní riziko pro osoby v blízkosti motoru.
-
-Další výhodou motoru typu b) je nižší hlučnost. Rotor při stejných otáčkách dosahuje nižších rychlostí na obvodu rotoru,
- což má za následek nižší hlučnost.
  
-%Z pohledu točivého momentu můžeme říci, že motor typu a) dosáhne vyššího točivého momentu než motor typu b). 
-% Důvodem je větší poloměr rotoru, který má přímý vliv na točivý moment (síla působící z interakce magnetů a generovaného magnetického pole působí dále 
- %od středu otáčení rotoru). 
+Ačkoli jde o stejný typ motoru, jejich klíčové vlastnosti jsou rozdílné a každý z nich je tak vhodný pro jiné aplikace. 
+. Tyto rozdíly a typické vlastnosti si popíšeme v kapitole % TODO: napsat kapitolu. 
 
- %Z pohledu maximalní dosažené rychlosti má motor typu b) výhodu. Díky menšímu poloměru rotoru je vystavem menšímu působení dostředivé resp. odstředivé síly, 
- %která může způsobit mechanické poškození rotoru při vysokých otáčkách.
-
- %Z pohledu ochrany proti vnějším vlivům má motor typu a) výhodu. Rotor je chráněn statorovým tělem, což znamená, že je méně náchylný na 
- %vnější vlivy jako je prach, voda nebo mechanické poškození. Stejně tak představuje menší bezpečnostní riziko pro osoby v blízkosti motoru.
- 
- %Představme si tedy situaci, že chceme vytvořit motor dosahující daný točivý moment a vzhledem
- %podobný motoru na obrázku~\ref[obr.a+obr.b]. 
- %V případě, že se rozhodneme pro uspořádání rotoru uvnitř statoru, musíme počítat s tím, že motor bude delší, než v případě, kdychom rotor umístili vně statoru. 
- %Důvodem prodloužení motoru je menší poloměr rotoru, který má přímý vliv na točivý moment. Síla působící z interakce magnutů a generovaného magnetického 
- %pole působí blíže středu otáčaní rotoru. Proto pro stejné vlastnosti musí být rotor delší. Tím budeme moci menší poloměr rotoru kompenzovat generováním větší síly z interakce magnetů 
- %a generovaného magetického pole.
- % \label[torque]
- % $$ a^2 + b^2 = c^2 \eqmark $$ % ~\ref[torque] - odkaz na rovnici
-
- %Z pohledu točivého momentu je tedy výhodné uspořádání rotoru vně statoru. Nevýhodu druhého řešení můžeme vidět v tom, že motor není od vnějšího prostředí izolován a je tak náchylnější na vnější vlivy jako je prach, voda nebo mechanické poškození.
- %Případně může představovat bezpečnostní riziko pro osoby v blízkosti motoru. Pokud bychom chtěli motor izolovat, museli bychom použít nějaký druh krytu, který by jednak zvětšil rozměry motoru, 
- %tak by zhoršil ch lazení motoru. Nelze tak jednoznačně říci, které řešení je lepší. Záleží na konkrétní aplikaci a požadavcích aplikace.
- 
-% Vnitřní rotor je vhodný pro aplikace, kde je vyžadována vysoká tepelná odolnost, vysoký poměr točivého momentu k setrvačnosti, 
-% nízká setrvačnost rotoru a nízká hlučnost. 
-
-%Naopak vnější rotor je vhodný pro aplikace, kde je vyžadován vysoký točivý moment,   
-%Další výhodou vnějšího rotoru je možnost umístit více magnetů, což zvyšuje magnetický tok a tím i výkon motoru.
-%V některých aplikacích je takové řešení 
 \secc Axiální uspořádání
-Axiální uspořádání je vhodné pro aplikace, kde je vyžadována kompaktní konstrukce a krátká délka motoru.
-Tento typ konstrukce je vhodný pro aplikace, kde je omezený prostor, jako například elektromobily, výtahy nebo chlazení.
-
-
- V rámci této kapitoly se detailněji zaměříme na konstrukční řešení a nezbytné komponenty pro chod motoru.
+Při axiálním upsořádání je rotor a stator umístěn proti sobě. Osa rotace rotoru a statoru je pak kolmá k těmto plochám.
+Příklad jednoduchého BLDC motoru s axiálním uspořádáním můžeme vidět na obrázku 3.2 níže. 
 
  \medskip
- \picw=9 cm \cinspic Pictures/3konstrukce/axial-rotor-stator.png 
+ \picw=9 cm \cinspic Pictures/3konstrukce/axial-complet.png 
+ \centerline {c)}\nobreak\medskip
  \caption/f Ukázka vložení obrázku na střed, což je asi nejobvyklejší.
  \medskip
  
- - axialní
- - radiální
-    - rotor in / out
+ Axiální uspořádání nabízí i několik složitějších konstrukčních variant, kdy je rotor resp. stator zastoupen dvěma kusy.
+ Dvojitý rotor nebo stator zvyšuje výkon motoru s minimálním nárokem na zvětšení jeho rozměrů. Avšak s rostoucí komplexností konstrukce
+ ztrácí motor na své jednoduchosti, kterou se BLDC motory vyznačují a pro které jsou tak oblíbené.     
 
- - coreless (slotless) motor
-	- výhody
-	- nevýhody
-	- aplikace	
+\secc Konstrukční materiály
+BLDC motory jsou obvykle vyrobeny z feromagnetických materiálů, jako je 
+například ocel a další kovové slitiny, které poskytují dostatečnou magnetickou propustnost a stabilitu 
+pro správnou funkci motoru.
 
+ \secc Slot vs. Slotless konstrukce
+ Pojmem slot se označují drážky statoru, kolem kterých jsou umístěné vinuté cívky. Tyto drážky jsou zvýrazněny modrou barvou
+ na obrázku 3.3 níže. 
 
-	- motory s rotorem uvnitř statoru mají menší torque -> jsou delší než s rotorem out
- \cite[druha]
+ \medskip
+ \picw=7 cm \cinspic Pictures/3konstrukce/slot.png 
+ \caption/f Sloty BLDC motoru.
+ \medskip
+
+ Drážky umožňují snadné upevnění cívek a minimalizují riziko jejich pohybu nebo poškození během provozu motoru. 
+ Další výhodou drážek je zvýšení a usměrnění magnetického toku generovaný vinutými cívkami.   
+ Hlavní nevýhodou slot konstrukce je interakce mezi drážkami a permanentními magnety, které jsou umístěny na rotoru. 
+ Tato interakce způsobuje tzv. {\em cogging torque}, což je nežádoucí točivý moment motoru, který se negativně projeví
+  v plynulosti chodu motoru. Právě tato negativní vlastnost drážkových statorů vedla k vývoji slotless konstrukce, která
+ minimalizuje vliv drážek na chování motoru. Cívky jsou u slotless motorů umístěny přímo na povrchu statoru a pro jejich fixaci se využívají
+ speciální lepidla. Vinutí cívek obou typů motorů je zobrazeno v kapitole Vinutí fází.
+
  % společný prvek
 
  \sec Vinutí fází
@@ -149,43 +114,14 @@ Tento typ konstrukce je vhodný pro aplikace, kde je omezený prostor, jako nap�
 - počet cívek
 - cogling torque 
 
-\medskip
-\picw=.6\hsize
-\clabel[obr.1+obr.2]{Popisek} % to dá popisek do seznamu obrázků
-\centerline {\inspic Pictures/3konstrukce/in-coil.png \hfil\hfil \inspic Pictures/3konstrukce/out-coil.png }\nobreak
-\centerline {a)\hfil\hfil b)}\nobreak\medskip
-\caption/f Radiální BLDC motor a) se statorem uvnitř rotoru b) s rotorem uvnitř statoru.
- \medskip
-Mezera 
- \medskip
-\picw=9 cm \cinspic Pictures/3konstrukce/axial-coil.png 
-\caption/f Ukázka vložení obrázku na střed, což je asi nejobvyklejší.
-\medskip
-
-
- \sec Slot vs Slotless konstrukce
- - co to je
-- výhody
-- nevýhody
-- aplikace
  \sec Permanentní magnety
-
- \medskip
-\picw=.6\hsize
-\clabel[obr.3+obr.4]{Popisek} % to dá popisek do seznamu obrázků
-\centerline {\inspic Pictures/3konstrukce/in-complet.png \hfil\hfil \inspic Pictures/3konstrukce/out-complet.png }\nobreak
-\centerline {a)\hfil\hfil b)}\nobreak\medskip
-\caption/f Radiální BLDC motor a) se statorem uvnitř rotoru b) s rotorem uvnitř statoru.
- \medskip
-Mezera 
- \medskip
-\picw=9 cm \cinspic Pictures/3konstrukce/axial-complet.png 
-\caption/f Ukázka vložení obrázku na střed, což je asi nejobvyklejší.
-\medskip
+ - strana 391 BLDC knihy ->
 
 - materiál
 - tvar
 - umístění
+
+\sec Porovnání zmíněných konstrukcí
 
  \sec Komutátor
 

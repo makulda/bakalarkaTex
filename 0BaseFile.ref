@@ -15,49 +15,47 @@
 \_Xpage{8}{2}
 \_Xtoc{1}{chap}{2}{}Teoretický přehled o BLDC Motorech
 \_Xtoc{2}{sec}{2.1}{}Vznik BLDC motorů
-\_Xtoc{2}{sec}{2.2}{}charakteristika BLDC motorů
+\_Xtoc{2}{sec}{2.2}{}Charakteristika BLDC motorů
+\_Xfnote
+\_Xfnote
 \_Xpage{9}{3}
 \_Xtoc{1}{chap}{3}{}Konstrukce BLDC motoru
 \_Xtoc{2}{sec}{3.1}{}Stator a rotor
 \_Xtoc{3}{secc}{3.1.1}{}Radiální uspořádání
-\_ctustyle_Xfig{obr.a+obr.b}{3.1}{Popisek k obrázkům}
 \_Xpage{10}{4}
+\_ctustyle_Xfig{obr.a+obr.b}{3.1}{Popisek k obrázkům}
 \_Xlabel{obr.a+obr.b}{3.1}
 \_Xtoc{3}{secc}{3.1.2}{}Axiální uspořádání
+\_Xtoc{3}{secc}{3.1.3}{}Konstrukční materiály
 \_Xpage{11}{5}
+\_Xtoc{3}{secc}{3.1.4}{}Slot vs. Slotless konstrukce
 \_Xtoc{2}{sec}{3.2}{}Vinutí fází
-\_ctustyle_Xfig{obr.1+obr.2}{3.3}{Popisek}
-\_Xlabel{obr.1+obr.2}{3.3}
-\_Xtoc{2}{sec}{3.3}{}Slot vs Slotless konstrukce
-\_Xpage{12}{6}
-\_Xtoc{2}{sec}{3.4}{}Permanentní magnety
-\_ctustyle_Xfig{obr.3+obr.4}{3.5}{Popisek}
-\_Xlabel{obr.3+obr.4}{3.5}
+\_Xtoc{2}{sec}{3.3}{}Permanentní magnety
+\_Xtoc{2}{sec}{3.4}{}Porovnání zmíněných konstrukcí
 \_Xtoc{2}{sec}{3.5}{}Komutátor
 \_Xtoc{2}{sec}{3.6}{}Řídící elektronika
 \_Xtoc{2}{sec}{3.7}{}Chlazení
 \_Xbib{}{prvni}{1}{, }
-\_Xbib{}{druha}{2}{Sang-Hong, 2017}
-\_Xbib{}{CVUT-FEL:zaverecne-prace}{3}{, }
-\_Xbib{}{CVUT-FEL:smernice}{4}{, }
-\_Xbib{}{CSN:016910}{5}{, }
-\_Xbib{}{zyka}{6}{, }
-\_Xbib{}{grafman2}{7}{, }
-\_Xpage{13}{7}
+\_Xbib{}{CVUT-FEL:zaverecne-prace}{2}{, }
+\_Xbib{}{CVUT-FEL:smernice}{3}{, }
+\_Xbib{}{CSN:016910}{4}{, }
+\_Xbib{}{zyka}{5}{, }
+\_Xbib{}{grafman2}{6}{, }
+\_Xpage{12}{6}
 \_Xtoc{1}{chap}{ }{}\_mtext {bibliography}
 \_Xcite{/}{CVUT-FEL:zaverecne-prace}
 \_Xcite{/}{CVUT-FEL:smernice}
 \_Xcite{/}{CSN:016910}
-\_Xpage{14}{9}
+\_Xpage{13}{7}
 \_Xlabel{zadani}{A}
 \_Xtoc{1}{chap}{A}{}Zadání práce
 \_Xcite{/}{zyka}
-\_Xpage{15}{10}
+\_Xpage{14}{8}
 \_Xlabel{zkratky}{B}
 \_Xtoc{1}{chap}{B}{}Zkratky a symboly
 \_Xtoc{2}{sec}{B.1}{}Zkratky
 \_Xtoc{2}{sec}{B.2}{}Symboly
 \_Xcite{/}{grafman2}
-\_Xpage{16}{11}
+\_Xpage{15}{9}
 \_Xlabel{seznamfilu}{B.3}
 \_Xtoc{2}{sec}{B.3}{}Soubory, které jsou součástí {\ssr CTUstyle3}
