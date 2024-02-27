@@ -1,36 +1,33 @@
 
-\catcode`<=13
-\def<#1>{\hbox{$\langle$\it#1\/$\rangle$}}
-\toksapp\everytt{\catcode`<=13} \toksapp\everyintt{\catcode`<=13}
+%Zajímavé fakta a tipy na obsah
+%Book: Electric Motor Control: CD AC and BLDC
+%	- DC motor handles about 2000 - 3000 hours (389)
+%	- BLCD was developed in 1962 (389)
+%	- BLDC has winding on STATOR and magnets on ROTOR
+%	- advantages low-cost, high-speed, simple drive method (389)
+%	- windings -> 1-phase (rotates only in one direction, no self startup), 2-phase, 3-phase and multi-phase (393)
+%	- 2 type of design -> radial-flux / axial-flux type (393)
+%		- radial-flux
+%			- advantages of inner rotor: higher heat dissipating capacity, high torque-to-inertia ration, lower rotor inertia, lower vibration and noise
+%				- common application is servo
+%			- advantages of outer rotor: more magnets -> more flux 
+%				- common application: app with const speed, computer disk drives, cooling fans
+%		- axial-flux
+%			- advantages of axial type: slim structure, shorter axial length
+%				- common application: electical vehicles in-wheel motors, elevator motors
+%
+%	- Stator a rotor
+%	- Vinutí
+%	- Permanentní magnety
+%	- Komutátor
+%	- řídící elektronika
+%	- chlazení
+%	- konstrukční materiály?
+%
+%\fi
 
-\iffalse
-Zajímavé fakta a tipy na obsah
-Book: Electric Motor Control: CD AC and BLDC
-	- DC motor handles about 2000 - 3000 hours (389)
-	- BLCD was developed in 1962 (389)
-	- BLDC has winding on STATOR and magnets on ROTOR
-	- advantages low-cost, high-speed, simple drive method (389)
-	- windings -> 1-phase (rotates only in one direction, no self startup), 2-phase, 3-phase and multi-phase (393)
-	- 2 type of design -> radial-flux / axial-flux type (393)
-		- radial-flux
-			- advantages of inner rotor: higher heat dissipating capacity, high torque-to-inertia ration, lower rotor inertia, lower vibration and noise
-				- common application is servo
-			- advantages of outer rotor: more magnets -> more flux 
-				- common application: app with const speed, computer disk drives, cooling fans
-		- axial-flux
-			- advantages of axial type: slim structure, shorter axial length
-				- common application: electical vehicles in-wheel motors, elevator motors
-
-	- Stator a rotor
-	- Vinutí
-	- Permanentní magnety
-	- Komutátor
-	- řídící elektronika
-	- chlazení
-	- konstrukční materiály?
-
-\fi
 \chap Konstrukce BLDC motoru
+
 % uvodní slovo do kapitoly
 BLDC motory nabízí širokou škálu konstrukčních variant a právě proto jsou populární volbou v mnoha aplikacích. 
 V této kapitole se budeme věnovat detailnímu popisu konstrukčních prvků BLDC motorů, jejich variantám a
@@ -54,15 +51,16 @@ Stator a rotor jsou základním konstrukční prvkem každého elektromotoru. St
 Setkáváme se s několika konstrukčními variantami, které se liší umístěním rotoru vůči statoru. Mužeme je rozdělit na radiální a axiální uspořádání.
 Dále dále můžeme stator rozdělit na tzv. slot a slotless variantu. Pojdmě si nyní tyto konstrukční varianty detailněji představit.   
 \secc Radiální uspořádání
+
 S radiálním uspořádáním se BLDC motorů setkáváme nejčastěji. V tomto uspořádání je rotor umístěn buď uvnitř, nebo vně statoru. 
 V obou případech je stator a rotor oddělen vzduchovou mezerou, která zajišťuje minimální mechanický kontakt mezi oběma částmi. 
 Takové uspořádaní si můžeme představit jako dvě koncentrické trubice, kde jedna trubice představuje stator a druhá rotor.
 Příklad BLDC motoru s radálním uspořádáním můžeme vidět na obrázku 3.1 níže.
 
 \medskip
-\picw=.5\hsize
+\picw=.35\hsize
 \clabel[obr.a+obr.b]{Popisek k obrázkům} % to dá popisek do seznamu obrázků
-\centerline {\inspic Pictures/3konstrukce/in-complet.png \hfil\hfil \inspic Pictures/3konstrukce/out-complet.png }\nobreak
+\centerline {\inspic Pictures/3konstrukce/in-big.png \hfil\hfil \inspic Pictures/3konstrukce/out-big.png }\nobreak
 \centerline {a)\hfil\hfil b)}\nobreak\medskip
 \caption/f Radiální BLDC motor a) se statorem uvnitř rotoru b) s rotorem uvnitř statoru.
  \medskip
@@ -71,6 +69,7 @@ Ačkoli jde o stejný typ motoru, jejich klíčové vlastnosti jsou rozdílné a
 . Tyto rozdíly a typické vlastnosti si popíšeme v kapitole % TODO: napsat kapitolu. 
 
 \secc Axiální uspořádání
+
 Při axiálním upsořádání je rotor a stator umístěn proti sobě. Osa rotace rotoru a statoru je pak kolmá k těmto plochám.
 Příklad jednoduchého BLDC motoru s axiálním uspořádáním můžeme vidět na obrázku 3.2 níže. 
 
@@ -85,13 +84,15 @@ Příklad jednoduchého BLDC motoru s axiálním uspořádáním můžeme vidět
  ztrácí motor na své jednoduchosti, kterou se BLDC motory vyznačují a pro které jsou tak oblíbené.     
 
 \secc Konstrukční materiály
+
 BLDC motory jsou obvykle vyrobeny z feromagnetických materiálů, jako je 
 například ocel a další kovové slitiny, které poskytují dostatečnou magnetickou propustnost a stabilitu 
 pro správnou funkci motoru.
 
  \secc Slot vs. Slotless konstrukce
+
  Pojmem slot se označují drážky statoru, kolem kterých jsou umístěné vinuté cívky. Tyto drážky jsou zvýrazněny modrou barvou
- na obrázku 3.3 níže. 
+ na obrázku 3.3 níže.
 
  \medskip
  \picw=7 cm \cinspic Pictures/3konstrukce/slot.png 
@@ -108,13 +109,114 @@ pro správnou funkci motoru.
 
  % společný prvek
 
- \sec Vinutí fází
-- materiál (izolace)
-- zapojení (trojúhelníkové, hvězdicové)
-- počet cívek
-- cogling torque 
+ \sec Cívky BLDC motoru
+
+ Cívky do elektromotrů jsou nejčastěji vyrobeny z mědi, nebo hliníku a jsou vždy opatřeny povrchovou izolací, 
+ které zabraňují vzniku zkratu mezi jednotlivými vinutými cívkami.
+ Tato izolace je obyvkle zajištená pomocí speciálních izolačních laků a jejich složení je závislé na konkrétní aplikaci motoru.
+ Základní složkou jsou organické pryskyřice, které zajišťují izolační vlastnosti a odolnost proti vysokým teplotám. Další přidané složky
+ mohou zvyšovat mechanickou pružnost, odolnost proti chemickým látkám i ochraně proti UV záření.
+
+Tyto cívky jsou pak nejčastěji navinuté na stator motoru do tzv. koncentrovaného uspořádání.
+Toto uspořádání nabízí snazší výrobní proces motoru a zároveň 
+
+Konfigurace fází BLDC motoru není standardizována a existuje několik variant. V případě třífázového motoru lze cívky 
+zapojit do trojúhelníkového nebo hvězdného uspořádání.
+Pojdmě si nyní tyto způsoby představit detailněji.
+
+\secc počet cívek
+
+BLDC motory mohou mít 1-fázové, 2-fázové, 3-fázové a multi-fázové vinutí.
+S příbajícím počtem fází se zlepšují jeho vlastnosti, ale také jeho cena a složitost řízení otáček. 
+Proto je důležité zvolit správný počet fází, který bude vyhovovat požadavkům konkrétní aplikace.
+
+Jednofázové motory jsou nejjednodušší a nabízí jednoduché řízení otáček. 
+Mají však nízký točivý moment a bez použití přidaného kondenzátoru nejsou 
+schopny samorozběhu. Další nevýhodou je veliké kolísání točivého momentu 
+a možnost rotace pouze v jednom směru. Tyto vlastnosti jsou ale 
+dostačující pro aplikace jako pohony pro ventilátory a čerpadla.
+
+Dvoufázové motory nabízí vyšší točivý moment, možnost rotace v obou směrech i schopnost
+samorozběhu. Stále však trpí značným kolísáním točivého momentu. Řízení dvoufázových motorů 
+je složitější než u jednofázových motorů, ale stále je možné použít jednoduché řídicí metody.
+Aplikace, kde se dvoufázové motory nejčastěji využívají jsou například kuchyňské spotřebiče, 
+nářadí, ventilátory a čerpadla. 
+
+Třífázové motory jsou nejběžnější volbou pro BLDC motory. 
+Oproti předchozím typům motorů je řízení třífázových motorů složitější a vyžaduje
+použití speciálních řídicích metod. Tyto metody však umožňují efektivní řízení otáček a točivého momentu motoru.
+Třífázové motory se hojně využívají v průmyslové automatizaci, letectví, robotice a v elektromobilních aplikacích. 
+
+Multi-fázové motory jsou nejvýkonnější volbou a oproti předchozím typům nabízí multi-fázové motory vyšší spolehlost. 
+Právě díky více fázím je schopen pracovat i při výpadku jedné nebo více fází. 
+Tento typ motoru se využívá v aplikacích, kde je vyžadována vysoká spolehlivost a výkon, jako
+je například v letectví, kosmonautice a vojenském průmyslu.  
+
+% tabulka pro jaké aplikace se hodí?
+\secc vinutí trojúhelník
+- méně časté (circulating current -> Při pohybu rotoru BLDC motoru se mění magnetický tok v cívkách a indukuje se napětí. Pokud není tento jev správně kontrolován, může indukované napětí způsobit proudění proudu mezi fázemi motoru. Tento oběhový proud může způsobit ztráty výkonu a zahřívání motoru, což může vést k poklesu účinnosti a životnosti motoru. Aby byl oběhový proud minimalizován nebo eliminován, je důležité provést vhodný návrh motoru a řídicího systému. To zahrnuje optimalizaci geometrie motoru, volbu správného typu cívek a magnetického obvodu, a implementaci pokročilých řídicích algoritmů, které minimalizují indukované napětí a řídí proudy motoru tak, aby byly co nejefektivnější. Takové opatření pomáhají snižovat ztráty výkonu a zvyšovat účinnost BLDC motorů.)
+- vyšší počáteční proud (vyšší počáteční točivý moment)
+- obtížnější detekce polohy rotoru 
+
+Vinutí do trojúhelníku se u BLDC motorů využívá jen zřídka. Důvodem jsou jeho vlastnosti, které nejsou pro BLDC motory vhodné.
+Zapojení do trojúhelníku má vždy uzavřený obvod a vyskytuje se tak tak oběhový proud.
+Oběhový proud v BLDC motoru vzniká při změně magnetického toku v cívkách v důsledku pohybu rotoru, což indukuje napětí a způsobuje tak
+proud mezi fázemi motoru. Tento jev může způsobit ztráty výkonu a zahřívání motoru, což negativně ovlivňuje jeho účinnost a životnost. 
+Pro potlačení tohoto jevu je nutné provést optimalizovaný návrh motoru a řídicího systému. 
+Dalším důsledkem uzavřeného obvodu je obtížnější detekce polohy rotoru.
+V trojúhelníkové zapojení nastává 30° fázový posun mezi svorkovým a fázovým napětím. Je tedy nezbytné 
+při detekci polohy rotoru s touto informací pracovat. Opět tak dochází k vyšším nárokům na návrh motoru.
+Další vlastností tohoto zapojení je vyšší počáteční proud při rozběhu motoru. Důsledkem toho motor disponuje 
+vyšším počátečním točivým momentem, který může být v některých aplikacích žádaný. 
+
+- uzavřený obvod (oběhový proud)
+- vyšší počáteční proud
+- obtížnější detekce polohy rotoru
+
+
+\medskip
+\picw=.35\hsize
+\clabel[vinuti-trojuhelnik]{Popisek k obrázkům} % to dá popisek do seznamu obrázků
+\centerline {\inspic Pictures/3konstrukce/sign-delta.png  \hfil\hfil \inspic Pictures/3konstrukce/coil-delta.png  }\nobreak
+%\centerline {a)\hfil\hfil b)}\nobreak\medskip
+\caption/f Vinutí cívek do hvězdy ve schématu a při realizaci .
+ \medskip
+
+\secc vinutí hvězda
+Vinutí do hvězdy představuje průmyslový standard pro BLDC motory, a to z několika důvodů.
+Obvod vinutí do hvězdy je otevřený a nevytváří tak oběhový proud. 
+Zadruhé, toto uspořádání netrpí posunem fázového a svorkového napětí, což usnadňuje detekci polohy rotoru.
+Za druhé, vinutí do hvězdy výrazně snižuje počáteční proudové špičky během startu, 
+což zlepšuje spolehlivost a životnost motoru a zároveň má pozitivní vliv na energetickou účinnost.
+Tyto vlastnosti z tohoto důvodu činí vinutí do hvězdy preferovanou volbou pro široké spektrum průmyslových
+ a komerčních aplikací, kde je kladen důraz na výkon, spolehlivost a účinnost.
+
+- nejčastější vinutí (standart)
+- menší počáteční proud (menší počáteční točivý moment)
+- snazší detekování polohy rotoru
+Civky při zapojení do hvězdy jsou spojeny do jednoho tzv. neutrálního 
+bodu. Tento bod je v případě vyvedení na konektoru motoru označen jako N. 
+
+
+\medskip
+\picw=.35\hsize
+\clabel[vinuti-hvezda]{Popisek k obrázkům} % to dá popisek do seznamu obrázků
+\centerline {\inspic Pictures/3konstrukce/sign-star.png  \hfil\hfil \inspic Pictures/3konstrukce/coil-star-n.png  }\nobreak
+%\centerline {a)\hfil\hfil b)}\nobreak\medskip
+\caption/f Vinutí cívek do hvězdy ve schématu a při realizaci .
+ \medskip
+
 
  \sec Permanentní magnety
+
+ \medskip
+ \picw=.35\hsize
+ \clabel[magnetBLDC+magnetPMSM]{magnet PMSM & BLDC} % to dá popisek do seznamu obrázků
+ \centerline {\inspic Pictures/3konstrukce/magnet-BLDC.png \hfil\hfil \inspic Pictures/3konstrukce/magnet-PMSM.png }\nobreak
+ \centerline {a) BLDC \hfil\hfil b) PMSM }\nobreak\medskip
+ \caption/f Porovnání magnetů BLDC a PMSM motorů.
+  \medskip
+
  - strana 391 BLDC knihy ->
 
 - materiál
@@ -126,7 +228,9 @@ pro správnou funkci motoru.
  \sec Komutátor
 
  \sec Řídící elektronika
+
  - ESC (Electronic Speed Control)
+
  \sec Chlazení
 
  

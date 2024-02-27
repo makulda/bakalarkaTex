@@ -1,10 +1,15 @@
-\catcode`<=13
-\def<#1>{\hbox{$\langle$\it#1\/$\rangle$}}
-\toksapp\everytt{\catcode`<=13} \toksapp\everyintt{\catcode`<=13}
+%\catcode`<=13
+%\def<#1>{\hbox{$\langle$\it#1\/$\rangle$}}
+%\toksapp\everytt{\catcode`<=13} \toksapp\everyintt{\catcode`<=13}
 
 \chap Teoretický přehled o BLDC Motorech
-Než se pustíme do detailního popisu konstrukce a metod řízení BLDC motorů, bylo by vhodné se zmínit o okolnostech, 
-které vedly k vzniku BLDC motorů a posléze i o charakteristických vlastnostech, kterými se odlišují od jiných typů motorů.
+
+BLDC, neboli Brushless DC motor, je typ synchronního motoru, který se vyznačuje vysokým točivým momentem, vysokou účinností a vynikající regulací otáček.
+Ačkoli se v názvu vyskytuje zkratka pro stejnosměrný motor (DC), jedná se v podstatě o motor střídavý. Tento fakt je důsledkem
+konstrukce, která se podobá konstrukci synchronních motorů a okolnostem vzniku jejich vývoje. 
+Než se pustíme do detailního popisu konstrukce a metod řízení BLDC motorů, bylo by vhodné si nejprve tyto okolnosti vzniku přiblížit a 
+a zařadit BLDC motory do širšího kontextu. 
+%které vedly k vzniku BLDC motorů a posléze i o charakteristických vlastnostech, kterými se odlišují od jiných typů motorů.
 
 \sec Okolnosti vzniku BLDC motorů %Vznik BLDC motorů
 
@@ -18,22 +23,40 @@ Nicméně, tato technologie má své nevýhody. Mechanická změna komutace pros
  Tyto součástky umožnily vývoj elektronických komutátorů, které představovaly klíčový krok směrem k nové éře.
  
  V roce 1962 představili T.G. Wilson a P.H. Trickey v článku \textit{D-C machine with solid-state commutation} první funkční řešení bezkartáčového 
- stejnosměrného motoru (BLDC) a otevřeli tak cestu pro vývoj moderních BLDC motorů. \cite[prvni].
+ stejnosměrného motoru (BLDC) a otevřeli tak cestu pro vývoj moderních BLDC motorů. \cite [druha].
 
- \sec Charakteristika BLDC motorů
-    BLDC motory se řadí do kategorie synchronních\fnote{Rotor se otáčí synchronně s magnetickým polem statoru.} motorů.
-    Charakteristickým znakem BLDC motorů je trapezoidní tvar zpětného indukovaného napětí\fnote{Označovaný též jako {\em back-emf}}, kterým 
-    se liší od klasických synchronních motorů se sinusoidním tvarem zpětného indukovaného napětí. 
-    - proud teče jen jednou fází
-    - vysoký točivý moment
-    - snadné řízení
-    - účinnost 
+ \sec Princip fungování BLDC motorů
+ - proč je DC když je to AC
+
+\sec Charakteristika BLDC motorů
+
+BLDC motory se řadí do kategorie synchronních\fnote{Rotor se otáčí synchronně s magnetickým polem statoru.} motorů.
+Díky své vysoké hustotě výkonu, účinnosti a vynikající regulaci otáček se staly populární volbou pro širokou škálu aplikací.
+
+Charakteristickým znakem BLDC motorů je trapezoidní tvar zpětného indukovaného napětí\fnote{Označovaný též jako {\em back-emf}}, kterým 
+se liší od klasických synchronních motorů se sinusoidním tvarem zpětného indukovaného napětí. 
+
+BLDC motory nabizí hned několik konstrukčních variant, které se liší v počtu fází i způsobu řízení. 
+Nejběžnějšími konstrukčními variantami jsou 1-fázové, 2-fázové, 3-fázové a multi-fázové motory.
+Tím se liší od klasických synchronních motorů, které mají většinou 3 fáze.
+
+
+
+Díky napájení DC napětím jsou otáčky snadno řiditelné 
+Tyto vlastnosti z nich činí  
+
+
+- proud teče jen jednou fází
+- vysoký točivý moment
+- snadné řízení
+- účinnost 
 
 
 
 
-    - zařazení (synchronní, DC,) 
-    - vysoký točivý moment
-    - trapezoidní back-emf
-    BLDC motory se vyznačují několika klíčovými vlastnostmi, které je činí vhodnými pro širokou škálu aplikací. Mezi ty největší patří 
-    - zařazení do kategorie synchronních motorů (obrázek, kam se řadí, takový to schéma)
+- zařazení (synchronní, DC,) 
+- vysoký točivý moment
+- trapezoidní back-emf
+BLDC motory se vyznačují několika klíčovými vlastnostmi, které je činí vhodnými pro širokou škálu aplikací. Mezi ty největší patří 
+- zařazení do kategorie synchronních motorů (obrázek, kam se řadí, takový to schéma)
+
