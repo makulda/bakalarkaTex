@@ -14,12 +14,15 @@
 \_Xtoc{1}{chap}{1}{}Úvod
 \_Xpage{8}{2}
 \_Xtoc{1}{chap}{2}{}Teoretický přehled o BLDC Motorech
-\_Xtoc{2}{sec}{2.1}{}Okolnosti vzniku BLDC motorů %Vznik BLDC motorů
-\_Xtoc{2}{sec}{2.2}{}Princip fungování BLDC motorů
-\_Xtoc{2}{sec}{2.3}{}Charakteristika BLDC motorů
 \_Xfnote
+\_Xfnote
+\_Xtoc{2}{sec}{2.1}{}Historický kontext vývoje BLDC motorů %Vznik BLDC motorů
+\_Xtoc{2}{sec}{2.2}{}Charakteristika BLDC motorů
 \_Xfnote
 \_Xpage{9}{3}
+\_Xfnote
+\_Xfnote
+\_Xtoc{2}{sec}{2.3}{}Rozdíl mězi BLDC a PMSM motory
 \_Xpage{10}{4}
 \_Xtoc{1}{chap}{3}{}Konstrukce BLDC motoru
 \_Xtoc{2}{sec}{3.1}{}Stator a rotor
@@ -59,14 +62,3 @@
 \_Xbib{}{druha}{1}{Sang-Hong, 2017}
 \_Xpage{17}{11}
 \_Xtoc{1}{chap}{ }{}\_mtext {bibliography}
-\_Xpage{18}{13}
-\_Xlabel{zadani}{A}
-\_Xtoc{1}{chap}{A}{}Zadání práce
-\_Xpage{19}{14}
-\_Xlabel{zkratky}{B}
-\_Xtoc{1}{chap}{B}{}Zkratky a symboly
-\_Xtoc{2}{sec}{B.1}{}Zkratky
-\_Xtoc{2}{sec}{B.2}{}Symboly
-\_Xpage{20}{15}
-\_Xlabel{seznamfilu}{B.3}
-\_Xtoc{2}{sec}{B.3}{}Soubory, které jsou součástí {\ssr CTUstyle3}
