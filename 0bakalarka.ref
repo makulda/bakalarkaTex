@@ -13,71 +13,69 @@
 \_Xpage{7}{1}
 \_Xtoc{1}{chap}{1}{}Úvod
 \_Xpage{8}{2}
+\_Xtoc{1}{chap}{2}{}Teoretický přehled o BLDC motorech
+\_Xtoc{2}{sec}{2.1}{}Charakteristika
+\_Xfnote
+\_Xfnote
+\_Xtoc{3}{secc}{2.1.1}{}Vznik BLDC motorů
+\_Xtoc{3}{secc}{2.1.2}{}Vlastnosti
+\_Xfnote
+\_Xtoc{3}{secc}{2.1.3}{}Back-emf
+\_Xfnote
 \_Xpage{9}{3}
-\_Xtoc{1}{chap}{2}{}Teoretický přehled o BLDC Motorech
 \_Xfnote
+\_Xtoc{2}{sec}{2.2}{}Rozdíl mezi BLDC a PMSM motory
 \_Xfnote
-\_Xtoc{2}{sec}{2.1}{}Historický kontext vývoje BLDC motorů %Vznik BLDC motorů
-\_Xtoc{2}{sec}{2.2}{}Charakteristika BLDC motorů
-\_Xfnote
+\_Xtoc{2}{sec}{2.3}{}Zařazení mezi AC nebo DC motory?
 \_Xpage{10}{4}
-\_Xfnote
-\_Xfnote
-\_Xtoc{2}{sec}{2.3}{}Rozdíl mězi BLDC a PMSM motory
-\_Xpage{11}{5}
 \_Xtoc{1}{chap}{3}{}Konstrukce BLDC motoru
 \_Xtoc{2}{sec}{3.1}{}Stator a rotor
 \_Xtoc{3}{secc}{3.1.1}{}Radiální uspořádání
-\_Xpage{12}{6}
 \_ctustyle_Xfig{obr.a+obr.b}{3.1}{Popisek k obrázkům}
 \_Xlabel{obr.a+obr.b}{3.1}
+\_Xpage{11}{5}
 \_Xtoc{3}{secc}{3.1.2}{}Axiální uspořádání
 \_Xtoc{3}{secc}{3.1.3}{}Konstrukční materiály
-\_Xpage{13}{7}
-\_Xtoc{3}{secc}{3.1.4}{}Slot vs. Slotless konstrukce
+\_Xtoc{3}{secc}{3.1.4}{}Slot vs. slotless konstrukce
+\_Xpage{12}{6}
 \_Xtoc{2}{sec}{3.2}{}Cívky BLDC motoru
-\_Xtoc{3}{secc}{3.2.1}{}počet cívek
-\_Xpage{14}{8}
-\_Xtoc{3}{secc}{3.2.2}{}vinutí trojúhelník
-\_Xpage{15}{9}
+\_Xtoc{3}{secc}{3.2.1}{}Počet fází
+\_Xpage{13}{7}
+\_Xtoc{3}{secc}{3.2.2}{}Zapojení vinutí do trojúhelníku
 \_ctustyle_Xfig{vinuti-trojuhelnik}{3.4}{Popisek k obrázkům}
 \_Xlabel{vinuti-trojuhelnik}{3.4}
-\_Xtoc{3}{secc}{3.2.3}{}vinutí hvězda
+\_Xtoc{3}{secc}{3.2.3}{}Zapojení vinutí do hvězdy
+\_Xpage{14}{8}
 \_ctustyle_Xfig{vinuti-hvezda}{3.5}{Popisek k obrázkům}
 \_Xlabel{vinuti-hvezda}{3.5}
+\_Xfnote
 \_Xtoc{2}{sec}{3.3}{}Permanentní magnety
-\_ctustyle_Xfig{magnetBLDC+magnetPMSM}{3.6}{magnet PMSM & BLDC}
-\_Xlabel{magnetBLDC+magnetPMSM}{3.6}
+\_Xpage{15}{9}
+\_Xtoc{1}{chap}{4}{}Princip fungování BLDC motoru
+\_Xtoc{2}{sec}{4.1}{}Fyzikální princip fungování BLDC motoru
+\_Xtoc{3}{secc}{4.1.1}{}Magnetické pole statoru
+\_Xfnote
 \_Xpage{16}{10}
-\_Xtoc{2}{sec}{3.4}{}Porovnání zmíněných konstrukcí
-\_Xtoc{2}{sec}{3.5}{}Komutátor
-\_Xtoc{2}{sec}{3.6}{}Řídící elektronika
-\_Xtoc{2}{sec}{3.7}{}Chlazení
+\_Xtoc{3}{secc}{4.1.2}{}Interakce magnetického pole
+\_Xfnote
+\_Xtoc{2}{sec}{4.2}{}Řídící obvod
 \_Xpage{17}{11}
-\_Xtoc{1}{chap}{4}{}Metody řízení BLDC motorů
-\_Xtoc{2}{sec}{4.1}{}Určení polohy rotoru
-\_Xtoc{2}{sec}{4.2}{}Six-step řízení
-\_Xtoc{2}{sec}{4.3}{}Sinusoidální řízení
-\_Xtoc{2}{sec}{4.4}{}trapezoidální řízení
-\_Xtoc{2}{sec}{4.5}{}FOC
-\_Xpage{18}{i}
-\_Xtoc{1}{chap}{ }{}\_mtext {bibliography}
-\_Xpage{19}{ii}
-\_Xpage{20}{iii}
-\_Xpage{21}{iv}
-\_Xpage{22}{v}
-\_Xpage{23}{vi}
-\_Xpage{24}{1}
-\_Xtoc{1}{chap}{5}{}Úvod
-\_Xpage{25}{2}
-\_Xpage{26}{3}
-\_Xtoc{1}{chap}{6}{}Teoretický přehled o BLDC Motorech
+\_Xtoc{2}{sec}{4.3}{}Elektronický komutátor
 \_Xfnote
 \_Xfnote
-\_Xtoc{2}{sec}{6.1}{}Historický kontext vývoje BLDC motorů %Vznik BLDC motorů
-\_Xtoc{2}{sec}{6.2}{}Charakteristika BLDC motorů
-\_Xfnote
-\_Xpage{27}{4}
-\_Xfnote
-\_Xfnote
-\_Xtoc{2}{sec}{6.3}{}Rozdíl mězi BLDC a PMSM motory
+\_Xpage{18}{12}
+\_Xtoc{1}{chap}{5}{}Metody řízení BLDC motorů
+\_Xtoc{2}{sec}{5.1}{}Základní myšlenka řízení BLDC motoru
+\_Xtoc{2}{sec}{5.2}{}Six-step
+\_Xpage{19}{13}
+\_Xtoc{3}{secc}{5.2.1}{}Napěťový režim
+\_Xtoc{3}{secc}{5.2.2}{}Proudový režim
+\_Xpage{20}{14}
+\_Xtoc{2}{sec}{5.3}{}Sinusoidální řízení
+\_Xtoc{2}{sec}{5.4}{}FOC
+\_Xtoc{2}{sec}{5.5}{}Porovnání metod
+\_Xtoc{2}{sec}{5.6}{}Senzorové metody určení polohy rotoru
+\_Xtoc{3}{secc}{5.6.1}{}Hallova sonda
+\_Xpage{21}{15}
+\_Xtoc{2}{sec}{5.7}{}Bezsenzorové metody určení polohy rotoru
+\_Xtoc{3}{secc}{5.7.1}{}Zero-Crossing Detection % https://www.youtube.com/watch?v=moz_GyOdBZw

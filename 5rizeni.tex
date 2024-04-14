@@ -1,0 +1,164 @@
+% zdroj: demystifying bldc motor commutation: trap, sine, foc
+% projet dokumenty od National intrument -> mají na to hodně článků
+
+\chap Metody řízení BLDC motorů
+
+Tato kapitola se zabývá popisem základních algoritmů pro řízení BLDC motorů. 
+Jsou popsány metody six-step, sinusoidální řízení a FOC (Field Oriented Control).
+
+V kapitole jsou také popsány senzorové a bezsenzorové metody pro určení polohy rotoru motoru,
+které jsou nezbytné pro správný chod řídících algoritmů. Popsané metody jsou zvoleny na základě
+relevantnosti využití v řídící metodě six-step, které se tato práce zabývá.
+
+\sec Základní myšlenka řízení BLDC motoru
+
+    Aby BLDC motor dosáhl maximální účinnosti, je klíčové řídit tok proudu do motoru tak, aby magnetické pole statoru bylo vždy
+    kolmé k magnetickému poli rotoru. Tímto způsobem lze dosáhnout nejvyššího možného točivého momentu motoru při minimální
+    vynaložené energii. 
+
+    Řídící metody se tak snaží tuto vzájemnou polohu polí udržovat kolmou a regulací proudu následně dosáhnout požadovaného točivého momentu
+    pro dosažení požadovaných otáček motoru.
+
+\sec Six-step 
+
+    V rámci algoritmu six-step je na jednu fázi motoru přivedeno kladné napětí zdroje a jedna fáze je uzemněna.
+    Během jedné rotace motoru tak dochází k šesti možným kombinacím spínání, které tvoří šestistupňový cyklus.
+    Pomocí těchto šesti kombinací lze vytvořit šest možných statorových magnetických polí s rozdílnou orientací 60°.
+
+    \medskip
+    \picw=12 cm \cinspic Pictures/4rizeni/sixstep-steps.png 
+    \caption/f Jednotlivé kroky six-step řízení
+    \medskip
+    %https://wiki.st.com/stm32mcu/wiki/STM32MotorControl:6-step_Firmware_Algorithm
+    %https://wiki.st.com/stm32mcu/nsfr_img_auth.php/a/a8/STM32_MC_6stepUM_3.png
+
+    Jednotlivé spínací sekvence jsou voleny tak, aby 
+    vytvořené statorové magnetické pole svíralo s magnetickým polem rotoru nejkolmější možný úhel.
+
+    Kolmost statorových a rotorových polí nastává pouze v jedné poloze během dané sekvence.
+    Z tohoto důvodu je u six-stepu přítomný tzv. torque ripple, tedy kolísání točivého momentu motoru.
+
+    Přepnutí jednotlivých spínacích sekvencí je řízeno na základě informace o poloze rotoru.
+    V momentě, kdy je statorové a magnetické magnetické pole vychýleno o méně jak 30°, je idealní
+     provést přepnutí na další spínací sekvenci. 
+
+    Pro regulaci otáček motoru je nezbytné regulovat množství proudu procházející motorem.
+    Tato regulace se provádí prostým spínaním a rozpínáním přívodu napětí na dané fáze a indukčnost 
+    cívky poskytuje postupný útlum proudu procházející motorem. Magnetické pole tak při dostatečně 
+    rychlém spínání nabývá proměnné intenzity a lze tak tek regulovat točivý moment motoru.
+
+    \medskip
+    \picw=9 cm \cinspic Pictures/4rizeni/coil-on-off.png 
+    \caption/f Průběh proudu v čase na cívce s dostatečně rychlým spínáním
+    \medskip
+
+    Metody regulace proudu se dělí na proudový a napěťový režim. 
+    
+    \secc Napěťový režim
+
+    % https://iopscience.iop.org/article/10.1088/1742-6596/2452/1/012015/pdf
+    Nápěťový režim umožňuje nepříme řízení proudu do motoru pomocí regulace střední hodnoty napětí přivedeného na motor.
+    To lze implementovat pomocí pomocí pulzně šířkové modulace (PWM), která spíná napěťové tranzistory komutátoru.
+    Při požadavku na zvýšení otáček se zvýší duty cycle PWM a tím i střední hodnota napětí na motoru.
+    To má poté za následek zvýšení proudu.
+    
+    %Druhým způsobem je využití komparátoru, který porovnává referenční napětí s aktuální střední hodnotou napětí na fázi motoru.
+    %Pokud je referenční napětí nižší než střední hodnota, komparátor odpojí 
+    %Při požadavku na zvýšení otáček se zvýší referenční napětí a naopak.
+
+    \secc Proudový režim
+
+    Proudový režim je založen na porovnávání referenční hodnoty proudu s aktuálním proudem procházejícím motorem.
+    Množství proudu procházející motorem se zjišťuje měřením úbytku napětí na známém rezistoru, který je umístěn za low side tranzistory.
+
+    Pokud je referenční hodnota nižší než aktuální hodnota proudu, high side tranzistory odpojí motor po dostatečnou dobu od zdroje napětí.
+
+    Z důvodu výpočetní náročnosti a zpoždění měření se proudový režim implementuje analogově.
+    
+\sec Sinusoidální řízení
+
+    TODO
+    - princip (sinusové napětí na všech fázích -> menší torque ripple, stejné jak u FOC)  
+    - výhody (menší hluk)
+    - nevýhody (ztráty v přepínání fází, horší dynamika, menší maximální rychlost)
+
+\sec FOC 
+    - výhody (největší výkon, nejmenší hluk, best torque ripple, maximum motor efficiency) - účinnost až 97 \% %pmdcorp.com field oriented control
+    - nevýhody - switching losses, výpočetní náročnost  
+    - DTC
+    - SVPWM
+    - Space Vector Modulation
+    - Direct Torque Control
+    - Field Oriented
+
+\sec Porovnání metod  
+
+\sec Senzorové metody určení polohy rotoru
+
+Senzorové metody pro určení polohy rotoru využívají fyzikální jevy k získání informací o poloze.
+Nejpoužívanějšími senzory jsou hallovy sondy, enkodéry a resolvery, z nichž každý má své specifické výhody a oblasti použití.
+Tyto senzory se vyznačují spolehlivostí a přesností, které si zachovávají i při nízkých nebo nulových otáčkách. Z pohledu řízení motoru
+algoritmem typu six step je však nejvýhodnější použití hallových sond.
+
+\secc Hallova sonda
+
+Hallova sonda je senzor využívající Hallova jevu k detekci magnetického pole.
+Základním prvkem hallovy sondy je polovodičová destička, kterou prochazí proud elektronů. 
+Magnetické pole tyto elektrony vychyluje z příme trajektorie a lze tak naměřit rozdíl potenciálu na stranách této destičky.
+Výstupní napětí je však velmi malé a musí být zesíleno zesilovačem.
+
+\medskip
+\picw=9 cm \cinspic Pictures/4rizeni/hallova_sonda.jpg 
+\caption/f Hallova sonda 
+\medskip
+% https://www.wikiskripta.eu/w/Soubor:Hall%C5%AFv_jev_b.jpg
+
+Pro detekci polohy v BLDC motorech se nejčastěji využívají hallovy sondy s digitálním výstupem. Tedy sondy, které mají 
+výstupní hodnotu 0 V, nebo hodnotu Vcc. Za tímto účelem mají hallovy sondy zabudovaný schmittův trigger, který zajištuje 
+přepínání výstupní hodnoty dle magnetického pole působícího na hallovu sondu.
+
+Tyto sondy bývají umístěny na statoru motoru a sledují pohyb rotoru. V závislosti na počtu fází motoru je třeba použít
+jednu, nebo více hallových sond. Pro třífázový motor se používají tři hallovy sondy, které jsou umístěny ve 120° úhlu.
+
+Hallovy sondy nedokáží určit přesnou polohu rotoru, ale při použití metody six-step poskytují informaci k přepnutí komutace.
+
+% % permanent magnet motor technology str.261
+
+% Vynikají svou cenou, malými rozměry a nekontaktním měřením.
+
+\sec Bezsenzorové metody určení polohy rotoru
+
+%- motor neobsahuje další součástky -> odolnější 
+%- nižší cena
+
+Určení polohy rotoru bez použití senzorů využívá měření zpětného indukovaného napětí na fázích motoru.
+Pro určení polohy na základě tohoto napětí existuje několik metod, které se liší přesností a náročností na výpočetní výkon.
+
+Nejjednoduším a nejpoužívanějším způsobem pro určení polohy rotoru je metoda zero-crossing detection, která je 
+bezsenzorovou alternativou hallových sond.
+
+Další metody využívají kromě naměřeného zpětného indukovaného napětí i znalosti parametrů motoru. Na základě těchto znalostí je možné 
+určit polohu rotoru s větší přesností. Mezi tyto metody patří analýza fázových proudů, Luenberger Observer, Kalmanův filtr a odhady polohy
+pomocí strojového učení. 
+
+% https://ieeexplore-ieee-org.ezproxy.techlib.cz/stamp/stamp.jsp?tp=&arnumber=7556835 - A Precise Method to Detect the Accurate Rotor Position in BLDC Motors at Standstill Condition 
+
+\secc Zero-Crossing Detection % https://www.youtube.com/watch?v=moz_GyOdBZw
+%https://ieeexplore-ieee-org.ezproxy.techlib.cz/stamp/stamp.jsp?tp=&arnumber=5586660
+%https://ieeexplore-ieee-org.ezproxy.techlib.cz/stamp/stamp.jsp?tp=&arnumber=4771242
+
+Tato metoda patří mezi nejjednoduší a nejběžnější metody pro určení polohy bez použití senzoru. Dále je také ideální 
+alternativou k hallovým sondám, neboť stejně jako hallovy sondy detekuje polohu rotoru pouze při průchodu známým úhlem. 
+
+Průběh zpětného indukovaného napětí je děj střídavý a při použití BLDC motoru s vinutím zapojeným do hvězdy a řízením typu six-step 
+je možné na plavoucí fázi motoru toto napětí měřit. Právě průchod nulovou hodnotou tohoto napětí se detekuje a býva 
+označován jako zero-crossing detection. 
+
+K tomuto ději dochází při vzniku kolmosti mezi statorovým a rotorovým magnetickým polem a je tak nutné odhadnout dobu, za kterou se rotor
+nalezne v bodě pro provedení komutace.
+
+Při nízkých či nulových otáčkách je zpětné indukované napětí velmi slabé a nelze této metody využít.
+ % https://ieeexplore-ieee-org.ezproxy.techlib.cz/stamp/stamp.jsp?tp=&arnumber=5585142
+            % https://pdf.sciencedirectassets.com/271454/1-s2.0-S0263224121X00164/1-s2.0-S0263224121014743/main.pdf?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEIn%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJIMEYCIQDAvWgdMksxSyt6X9k0JOzCXG5v%2B0LdLuOa1xfKA44GiAIhAIzRoumRAZIAaq2CmOHOu8Vgx4Tlfqp9r57QdUM6ky9BKrwFCKL%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQBRoMMDU5MDAzNTQ2ODY1IgxIXuG8arlotMx0gQ8qkAVIt2CRl7UuesnqkDQN42ry3v7zryrCH4EjhiHA%2B0NJW%2FEGfiPKjbIrh0jv%2BmfvBJ2lXGbSx%2FPU88F3r6QmmRYXVnqJLwSSR4Bi3DLY0ilZL%2ByP8%2F77M%2Bvc%2FXLWbDIYAQDMCC6pHJZLc2behEC8wl0BUTAmaZTsBmlhJVE7Br4qP6oWQX5G%2FEkSo5Ga%2FXZIBa7hjdlw8%2FwLBcmOkvhEo6fX9sRfyVLRMrzCwP81hAKFQPl9q%2B%2B%2Fj1kfZChTithJCJpJ33k3W3x61lAnytKjtyfN%2F1u1hGQi0tZMceHxQTdZA2HMjeBMf8yWsZfKUX1bkDAidCbRPoT8fxx3%2BU%2BGQHZ8X4nMg%2BHxRBHEBNwKF2OaAKh%2BXTvQOC%2FTCVdYRLQRNwn5HlrLgWdn6R8QBexI2dBz%2B4U51oDBuv3EV5E%2Fcfbloflb%2BMRc1Ly%2B6tzgB%2BontgYEt9qboMXMNca72GDQIUWjVSrUfNoKN08b6%2FZHTXHkxl3vt0zeo4xuQ9FRoJeO9ya1fyM%2F4Rxn37eDxpFnufNfGgv3HKp%2F%2Fysc6Zk6aixFG8l9xHpSbq5tz3tTu%2F30l%2F28ysO1a3y6G4VrP9rD8jTYmIF7nnQTSZ8EeU2S59Wzj7UkOuf3diG18oSIBha1g4U7JFnwj%2Buwtj%2FT%2FVQTG%2F2iPAkE7caB6BKBT8dhh922LkYhF1O77bvc6g6P4aI9%2B9igQhb9EGzCn%2BWN%2BWr%2B15JII24uw%2BkjRDkOfAwHB2vPg5KXwgboCvw7oj7Cj7Je%2Fe3QbeZwbPtclMZ3iSQbv73%2FaUqFcK71TaCJv9KVckYQitpaOQoYw0eNxCuu9HvBDl1E61npXRRhlesc0rmK4yXG2MbvqQ3b6dTqg0AcDVMTszDgnIqwBjqwAUqWzitENwCe8cKpTuR23R7Akk2XYM6dFZyuYCTT0Xoqt8pwIFsGZQKYFM%2Fd5W3YHuQ%2Bj7zeOTugA%2Fgk6rz%2FRdDFt8VxPXHXbJQHdNqJvE8eysswjGPb3Rxigd%2B0ydGGXycjf0fjFyCwT5hdiWOQ1olqw%2B5Uln9XLCgE8TBsbR82Q2hHpeRCJgfUuq0W2Xzw1D3I25Iv8Cv%2BVykUWFCYdVDR41QQgVbr2KnUb%2FgnXEAm&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20240326T093625Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=ASIAQ3PHCVTYVZPFDYB5%2F20240326%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=59041c7e2b8eed489aac691bcbde0958517d889211dea8e1990691748e576b31&hash=975c85f4556b83d909964d4b6bcf47fb333fa7f0338ac4824376832ce666ca1c&host=68042c943591013ac2b2430a89b270f6af2c76d8dfd086a07176afe7c76c2c61&pii=S0263224121014743&tid=spdf-5cd750eb-20ba-4a52-9543-19ad05542d81&sid=0d7bc1d33e7aa44fe0487da0424729292c63gxrqb&type=client&tsoh=d3d3LnNjaWVuY2VkaXJlY3QuY29t&ua=00145b590151565805&rr=86a627fd9a1cb32a&cc=cz
+
+% modelování - Modeling and simulation of four switch three-phase BLDC motor using anti-windup PI controller

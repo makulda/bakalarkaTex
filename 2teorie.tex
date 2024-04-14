@@ -2,66 +2,85 @@
 %\def<#1>{\hbox{$\langle$\it#1\/$\rangle$}}
 %\toksapp\everytt{\catcode`<=13} \toksapp\everyintt{\catcode`<=13}
 
-\chap Teoretický přehled o BLDC Motorech
+\chap Teoretický přehled o BLDC motorech
 
-BLDC\fnote{Anglická zkratka pro brushless direct current motor}, neboli bezkartáčové stejnosměrné motory, jsou typem
-synchronního\fnote{Rotor se otáčí synchronně s magnetickým polem statoru.} motoru, který se 
-vyznačuje vysokým točivým momentem, vysokou účinností a vynikající regulací otáček. 
-To jsou jen některé z vlastností, které dělají BLDC motory vhodnými pro širokou škálu aplikací, od průmyslových pohonů, 
-přes elektromobilitu, až po domácí spotřebiče. 
+% úvod do kapitoly
+Tato kapitola se zaměčuje na popis BLDC motorů z pohledu charakteristiky a vlastností. Bude zde zmíněna i historie jejich vzniku
+a vysvětlen rozdíl mezi motorem typu BLDC a PMSM.
 
-Svými vlastnostmi, možnostmi řízení i konstrukcí se BLDC motory velmi podobají klasickým synchronním motorům s permanentními magnety (PMSM).
-Než se tedy pustíme do detailního popisu konstrukce a metod řízení BLDC motorů, bylo by vhodné si vysvětlit rozdíl mezi těmito dvěma typy motorů.
-Dále si zdůvodníme, přoč se BLDC motory řadí mezi stejnosměrné motory, ačkoli fungují na střídavém principu jako PMSM. Pro tyto účely musíme
-nejprve zmínit historický kontext vývoje BLDC motorů, který jejich označení vysvětlí.
+% charakteristika BLDC motorů (podobnost s DC motory, rozdíly)
+\sec Charakteristika
+% že jsou bezkartáčové, rozdíly oproti DC motorům, kam se řadí TODO: koncentrované vinutí
+BLDC\fnote{Anglická zkratka pro brushless direct current motor}, neboli bezkartáčový stejnosměrný motor, je moderní
+typ elektrického motoru, který je svými vlastnostmi a konstrukcí podobný klasickým stejnosměrným motorům s kartáči, též označovanými jako DC.
+Oproti DC motorům se však liší absencí mechanického komutátoru\fnote{Součástka sloužící k přepínání polarit proudů v jednotlivých cívkách motoru. 
+Obsahuje tzv. kartáče, které se třou o lamely. Tímto kontaktem prochází proud do motoru.}, který je nahrazen komutátorem elektronickým. Odtud pochází 
+jeho název - bezkartáčový. 
 
-%Ačkoli se v názvu vyskytuje zkratka pro stejnosměrný motor (DC), nelze o něm uvažovat v takovém významu, jako u klasických stejnosměrných motorů.
-%V případě použití elektronického komatátoru pro spínání jednotlivých fází se motor chováním velmi podobá klasickým stejnosměrným motorům.
-%Elektronický komutátor lze však použít i pro modulaci stejnosměrného napětí na střídavé a motor je schopen pracovat i v takovém řešení. BLDC motory tak lze 
-%považovat za hybridní motor, který se nachází někde mezi stejnosměrnými a synchronními motory. 
-%Přítomnost DC označení je způsoben historickým kontextem jejich vzniku, podobností v konstrukci a způsobu řízení s klasickými stejnosměrnými motory. 
+BLDC motory se řadí do kategorie synchronních motorů. Označení synchronní znamená, že pohyb rotoru motoru je synchronní s
+pohybem magnetického pole statoru a nedochází tak k tzv. kluzným otáčkám, které jsou typické pro asynchronní motory. 
 
-\sec Historický kontext vývoje BLDC motorů %Vznik BLDC motorů
+% tabulka DC, AC?
 
-Stejnosměrné motory s kartáči hrály významnou roli v elektrifikaci během druhé průmyslové revoluce v druhé polovině 19. století. 
-Oproti střídavým motorům, včetně PMSM, měli možnost snadné regulace otáček pomocí potenciometru a díky tomu se staly populární volbou pro
-průmyslové aplikace, kde byla vyžadována variabilita a přesnost rychlosti. 
+\secc Vznik BLDC motorů
+% že vznikly jako náhrada za klasické DC motory
+Vznik BLDC motorů je úzce spojen s vývojem polovodičových technologií v 60. letech 20. století, které 
+umožnili výrobu spolehlivých a výkonných elektronických komutátorů. V roce 1962 T.G. Wilson a P.H. Trickey publikovali
+ve své práci \textit{D-C machine with solid-state commutation} první návrh a realizaci BLDC motoru s elektronickým komutátorem
+a jsou tak označováni za jeho vynálezce.
 
-Nicméně, tato technologie má své nevýhody. Mechanická změna komutace prostřednictvím kartáčů snižuje účinnost a omezuje životnost
- motoru na 1000-3000 hodin provozu. Odstraněním kartáčů by tak bylo možné vytvořit motor s výrazně delší životností a vyšší účinností. 
- Avšak technologicky nebylo možné takový motor vytvořit. Významný zlom nastal až v 60. letech 20. století s objevem křemíkových polovodičových součástek.
- Tyto součástky umožnily vývoj elektronických komutátorů, které představovaly klíčový krok směrem k nové éře.
- 
- V roce 1962 představili T.G. Wilson a P.H. Trickey v článku \textit{D-C machine with solid-state commutation} první funkční řešení bezkartáčového 
- stejnosměrného motoru (BLDC). Název tak vznikl pouze na základě vývojové evoluce DC motorů. \cite [druha] 
+\secc Vlastnosti
+% vysoká účinnost, vysoké otáčky, vysoký výkon, vysoká hustota výkonu, vysoká regulace otáček, vysoká životnost, vysoká cena, složitější řízení, nejiskří -> možno použít v nebezpečném prostředí
+Mezi charakteristické vlastnosti BLDC motorů patří vysoká účinnost, vysoký točivý moment, dlouhá životnost a výborná regulace otáček.
 
-\sec Charakteristika BLDC motorů
+BLDC motory dosahují účinnosti až 90 \% a při vhodné konstrukci dosahují vysokých otáček blížících se až k 100 000 ot/min. % Permanent magnet motor technology str. 441
+Vyznačují se také jednoduchou a lehkou konstrukcí, díky které disponují vysokou hustotou výkonu\fnote{Výkon v poměru s hmotností a objemem motoru.}. 
 
-Ačkoli se řadí do kategorie stejnosměrných motorů, fungují na principu motoru střídavých. A právě z tohoto důvodu se BLDC motory 
-mohou vyskytovat v některých pramenech pod označením AC a nikoliv DC (https://www.ti.com/lit/an/sprabz4/sprabz4.pdf).
+Dále se vyznačují variabilitou konstrukčních řešení a lze tak nelézt BLDC motory v různých provedeních a rozměrech.
 
-Konstrukčně se BLDC motory podobají synchronním motorům typu PMSM, ale odlišují se tvarem zpětného indukovaného napětí\fnote{Označovaný též jako {\em back-emf}}.
-Zatímco BLDC motory mají trapezoidní tvar zpětného indukovaného napětí, PMSM motory mají sinusoidní. Tento tvar zpětného indukovaného napětí
-je důsledkem charakteristiky použitých permanentních magnetů a způsobu vinutí cívek v motoru.
+\secc Back-emf
+
+Při pohybu rotoru s permanentními magnety v blízkosti vodivých cívek statoru dochází k indukci napětí na cívkách.
+Toto napětí bývá označováno jako zpětné indukované napětí, nebo zkráceně back-emf\fnote{Zkratka anglického výrazu \textit{Back elektromotive force}}.
+Tento jev je přítomný u všech synchronních motorů. Typickým znakem BLDC motorů je trapezoidní tvar zpětného indukovaného 
+napětí. % Tento tvar je způsoben 
+
+\medskip
+ \picw=14 cm \cinspic Pictures/2teorie/bemf-graph.png 
+ \caption/f Trapezoidní tvar zpětného indukovaného napětí
+ \medskip
+
+Tento tvar je způsoben použitím koncentrovaného vinutí statorových cívek a permanentních magnetů s vnitřním magnetickým tokem 
+kolmým k povrchu rotoru \fnote{Pokud jsou použity magnety s paralelní magnetizací, vzniká sinusoidální zpětné elektromotorické napětí a nejedná se o motor BLDC, ale motor typu BLAC}.
+
+\medskip
+ \picw=7 cm \cinspic Pictures/2teorie/magnet-BLDC.png 
+ \caption/f Magnetický tok uvnitř permanentních magnetů BLDC motoru
+ \medskip
 
 
-Charakteristickým znakem BLDC motorů je trapezoidní tvar zpětného indukovaného napětí\fnote{Označovaný též jako {\em back-emf}}, kterým 
-se liší od konstrukčně téměř identických PMSM klasických synchronních motorů se sinusoidním tvarem zpětného indukovaného napětí. 
-Trapezoidní tvar zpětného indukovaného napětí
-je důsledkem charakteristiky použitých permanentních magnetů a způsobu vinutí cívek v motoru.
+%https://electronics.stackexchange.com/questions/428028/why-is-back-emf-of-bldc-trapezoidal
 
-BLDC motory jsou konstrukčně téměř identické s moty typu PMSM\fnote{permanent magnet synchronous motor}.
+\sec Rozdíl mezi BLDC a PMSM motory
 
-\sec Rozdíl mězi BLDC a PMSM motory
+PMSM \fnote{Zkratka anglického výrazu \textit{Permanent Magnet Synchronous Motor}} motory jsou dalším typem synchronních motorů. 
+S BLDC motory sdílejí mnoho společných vlastností a konstrukčních podobností. Z tohoto důvodu
+je často obtížné odlišit tyto dva typy motorů. Rozlišit je lze dle typu vinutí statorových cívek.
+PMSM motory využívají vinutí distribuované, zatímco BLDC motory využívají vinutí koncentrované.
+To má za následek rozdílný tvar zpětného indukovaného napětí, které je u PMSM motorů sinusoidní.
+% Comparing the Performance of Parallel Multi-Phase Brushless DC Motors: A Comprehensive Analysis
+% electric motors and drives str. 357
 
-Hlavní výhodou BLDC motorů oproti ostatním typům motorů je jednoduchá konstrukce, která 
-BLDC motory nabizí hned několik konstrukčních variant, které se liší v počtu fází i způsobu řízení. 
-Nejběžnějšími konstrukčními variantami jsou 1-fázové, 2-fázové, 3-fázové a multi-fázové motory.
-Tím se liší od klasických synchronních motorů, které mají většinou 3 fáze.
-- trapezoidní back-emf
-- BLDC podobné PMSM
-- proud teče jen jednou fází
-- vysoký točivý moment
-- snadné řízení
-- účinnost až 90\%
+\sec Zařazení mezi AC nebo DC motory?
+
+Zařazení BLDC motorů do kategorie střídavých nebo stejnosměrných motorů není jednoznačné, neboť 
+mohou být napájeny jak stejnosměrným tak i střídavým napětím. % electric motors and drives str. 357
+
+Některé prameny zařazují BLDC motory mezi stejnosměrné z důvodu použití stejnosměrného zdroje napětí nebo konstrukční podobností 
+s DC motory. 
+
+Argumentem zařazení BLDC motorů mezi AC motory je velmi podobný princip fungování a charakteristika se synchronními AC motory.
+
+Z tohoto důvodu nelze BLDC motory do této kategorie jednoznačně zařadit, a proto se v pramenech často objevují pod různými označeními.
+%(https://www.ti.com/lit/an/sprabz4/sprabz4.pdf).
 

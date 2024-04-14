@@ -1,0 +1,120 @@
+
+\chap Princip fungování BLDC motoru
+
+%- fizikální princip fungování - lorentzova síla
+%- řídící obvod
+%- základní myšlenka řízení BLDC motoru
+
+Tato kapitola se zaměřuje na popis fyzikální principu fungování BLDC motoru, popisu
+ řídícího obvod motoru a základní myšlenky pro řízení BLDC motoru.
+
+%https://www.st.com/content/dam/applications-pages/field-oriented-control.jpg
+
+\sec Fyzikální princip fungování BLDC motoru
+
+Vytváření točivého momentu v BLDC motoru je založeno na interakci magnetického pole generovaného statorovými cívkami s magnetickým polem rotoru.
+
+%- Ampérův zákon
+%- selenoid - magnetické pole
+%- selenoid s feromagnetyckým jádrem
+%- interakce magnetického pole s permanentními magnety vytváří točivý moment
+
+\secc Magnetické pole statoru
+
+Generování magnetického pole statoru je možné na základě Ampérova zákona, dle kterého proud procházejícím vodičem vyvolávává magnetické pole, 
+jehož směr je kolmý na směr proudu. 
+Hodnotu magnetického toku\fnote{Magnetický tok je vektorová veličina. Vyjadřuje množství magnetického pole procházející danou plochou. }
+ tohoto pole lze vyjádřit pomocí Hopkinsona zákona jako:
+
+$$ \muppphi = G_{m} U_{m}  \eqno (4.1) $$
+
+Kde $ G_{m} $ je magnetická vodivost a $U_{m}$ je magnetomotorické napětí. Magnetická vodivost vyjadřuje schopnost 
+materiálu vést magnetický tok a platí pro ni vztah $ G_{m} = \frac{\mupmu S}{l} $, kde $ \mupmu $ je permeabilita prostředí, 
+S průřez cívky a l je její délka.
+V případě cívky platí, že magnetomotorické napětí je rovno součinu proudu procházejícího cívkou s počtem závitů dané cívky. Tedy $ U_{m} = N I $.
+Při vynásobení rovnice počtem závitů cívky se vyjádří vztah pro její celkový spřažený tok se všemi závity.
+
+$$ \mumppsi = N \mupphi = G_{m} N^2 I  \eqno (4.2) $$
+
+Výraz $N^2 G_{M}$ vyjadřuje vlastní indukčnost cívky. Tato veličina se značí jako L a vyjadřuje schopnost cívky vytvářet magnetické pole.
+Celkový magnetický tok cívky tak lze vyjádřit jako:
+
+$$ \muppsi = L I  \eqno (4.3) $$
+
+Z tohoto vztahu je zřejmé, že magnetický tok ovlivňuje nejen velikost a směr proudu, ale i vlastní indukčnost cívky a prostředí ve kterém se cívka nachází.
+V případě, že je v prostředí feromagnetické jádro, je magnetické pole vytvářené cívkou výrazně zesíleno a toho se využívá u 
+drážkových BLDC motorů.
+
+\medskip
+\picw=8 cm \cinspic Pictures/4princip/coil-magnetic-flux.png 
+\caption/f Znázornění magnetického pole cívky
+\medskip
+
+% Elektrotechnika I - Antonín Blahovec vydání paté strana 170-173
+
+\secc Interakce magnetického pole
+
+Statorové cívky tak vytvářejí magnetické pole, které následně interaguje s polem permanentních magnetů. 
+V případě rozdílných směrů magnetické indukce\fnote{Magnetická indukce je veličina vyjadřující magnetické pole v 
+daném bodě prostoru a je definována jako $\mbfB~=~\mbfPhi \setminus S $.}
+ těchto polí dochází k točivého momentu, který se tyto pole snaží srovnat.
+
+\medskip
+\picw=7 cm \cinspic Pictures/4princip/magneticky-tok.png 
+\caption/f Znázornění magnetického indukce statoru a rotoru BLDC motoru
+\medskip
+%https://www.st.com/resource/en/product_training/Fundamentals_of_Motor_Control_2020.pdf
+
+Hodnotu točivého momentu mezi statorem a rotorem lze v takovém případě vyjádřit jako
+
+$$ T_{q} = \mid\mbfB_{stat}\mid  \mid\mbfB_{rot}\mid \sin{\muptheta} \eqno (4.4)$$
+
+kde  $\muptheta$ je úhel mezi těmito vektory.
+
+% Elektrotechnika I - Antonín Blahovec vydání paté strana 170-173
+
+Z rovnice 4.3 a 4.4 je zřejmé, že mnoštví a směr procházejícího proudu cívkou ovlivňuje statorové magnetické pole a tím i
+směr a velikost točivého momentu motoru. Tento směr a velikost je možné regulovat pomocí řídícího obvodu.
+
+\sec Řídící obvod
+
+Řídící obvod se skládá ze dvou částí. Jedna část zajišťuje tok elektrické energie do motoru a druhá část tento tok řídí.
+Obě tyto části jsou navrženy dle požadavků aplikace a mohou se lišit v závislosti na typu zdroje napětí a použitých 
+metod řízení. % Electric motors and drives str.45-46
+
+Pro BLDC motory je typické použití stejnosměrného zdroje napětí. 
+Hlavními komponentami řídícího obvodu je elektronický komutátor a mikrokontrolér.
+Komutátor zajišťuje tok elektrického proudu do motoru a mikrokontrolerér toto množství reguluje.
+% permanent magnet motor technology str.270
+
+\sec Elektronický komutátor
+
+% mosfety se spínají rychleji, ale mají vyšší ztráty než IGBT
+% ta dioda už je, protože mosfet má integrovanou diodu
+% igbt high voltage, high current, low switching frequency
+% mosfet low voltage, high current, high switching frequency
+% https://www.integrasources.com/blog/bldc-motor-controller-design-principles/
+
+
+Elektronický komutátor je sestaven z tzv. půlmůstků, přičemž každý půlmůstek se skládá
+ ze dvou spínačů\fnote{V případě použití jednoho spínače jsou řídící metody i výkonnost motoru výrazně omezeny.}. 
+ Pro tyto účely spínání se dle potřeb využívají tranzistory typu MOSFET nebo IGBT. 
+ Každý půlmůstek je připojen k jedné fázi motoru, což umožňuje buď přivedení napětí zdroje 
+ na danou fázi, nebo její uzemnění. Tímto způsobem lze přesně řídit tok proudu a směr otáčení motoru.
+ % Electric motors and drives str.72-73
+
+Tranzistory spínající napětí zdroje jsou označeny HS (high side) a tranzistory spínající zem jsou označeny jako LS (low side).
+Jednotlivé fáze motoru jsou označeny U, V a W. Kombinace těchto dvou označení pak tvoří označení pro jednotlivé tranzistory.
+Toto označení není unifikováno, ale v této práci bude použito i v dalších kapitolách. 
+
+% obrázek
+\medskip
+\picw=12 cm \cinspic Pictures/4rizeni/Bridge.jpg 
+\caption/f Řídící můstek třífázového BLDC motoru
+\medskip
+
+Pro ochranu tranzistorů před zpětnými proudy z motoru jsou tranzistory osazeny paralelními diodami, které 
+umožňují bezpečné odvádění přebytečné energie z motoru.
+
+Elektronický komutátor bývá nejčastěji integrovaný již v řídícím obvodu společně s ochrannými obvody a mikrokontrolerem 
+generující signály pro spínání jednotlivých tranzistorů. Řídící obvod pak bývá označován jako ESC\fnote{Electronic Speed Controller}.
